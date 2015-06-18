@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans xmlns="http://www.springframework.org/schema/security"
+    xmlns:beans="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans 
+                    http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+                    http://www.springframework.org/schema/security 
+                    http://www.springframework.org/schema/security/spring-security-3.1.xsd">
+
+	 <global-method-security pre-post-annotations="enabled" />
+
+	<beans:bean id="authFilterEntryPoint"
+		class="org.springframework.security.web.authentication.Http403ForbiddenEntryPoint" />
+		
+	<http pattern="/**/login" security="none" />
+	<http pattern="/**/login*" security="none" />
+	<http pattern="/**/login/**" security="none" />
+	
+	<http pattern="/**/logout" security="none" />
+	<http pattern="/**/logout*" security="none" />
+	<http pattern="/**/logout/**" security="none" />
+	
+	<http pattern="/**/passwordRecovery" security="none" />
+	<http pattern="/**/passwordRecovery*" security="none" />
+	<http pattern="/**/passwordRecovery/**" security="none" />
+	
+	<http pattern="/**/securityquestions" security="none" />
+	<http pattern="/**/securityquestions*" security="none" />
+	<http pattern="/**/securityquestions/**" security="none" />
+	
+	
+	<!-- <http pattern="/**/create" security="none" />
+	<http pattern="/**/create/**" security="none" />
+	<http pattern="/**/*create" security="none" /> -->
+	
+	<http auto-config="false" entry-point-ref="authFilterEntryPoint"
+		create-session="stateless">
+		<intercept-url pattern="/**" />
+		<custom-filter position="PRE_AUTH_FILTER" ref="authFilterImpl" />
+	</http>
+
+	<beans:bean id="authFilterImpl"
+		class="com.lnt.core.common.auth.AuthFilterImpl">
+		<beans:property name="authenticationManager" ref="authenticationManager" />
+	</beans:bean>
+
+	<authentication-manager alias="authenticationManager">
+		<authentication-provider ref="tokenAuthenticationProvider" />
+	</authentication-manager>
+
+	<beans:bean id="tokenAuthenticationProvider"
+		class="com.lnt.core.common.auth.TokenAuthenticationProvider">
+		<beans:property name="authUserDetailsService" ref="userDetailsByTokenServiceImpl" />
+	</beans:bean>
+
+	<beans:bean id="userDetailsByTokenServiceImpl"
+		class="com.lnt.core.auth.UserDetailsByTokenServiceImpl" />
+
+</beans:beans>

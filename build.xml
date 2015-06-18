@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<project name="iControlE-Core" default="war" basedir=".">
+	<property name="project.name" value="iControlE-Core" />
+	<property name="release.name" value="sprint1" />
+	<property name="src.build.dir" value="build/classes" />
+	<property name="java.dir" value="src" />
+	<property name="common.java.dir" value="common-src" />
+	<property name="common.build.dir" value="build/common-classes" />
+	<property name="common.jar" value="lnt-core.jar" />
+	
+	<path id="compile.classpath">
+		<fileset dir="WebContent/WEB-INF/lib">
+			<include name="*.jar" />
+		</fileset>
+	</path>
+	<target name="common-jar">
+			<javac destdir="${common.build.dir}" debug="true" srcdir="${common.java.dir}">
+				<classpath refid="compile.classpath" />
+			</javac>
+
+			<jar destfile="dist/${common.jar}" basedir="${common.build.dir}">
+				<manifest>
+					<attribute name="Main-Class" value="${main-class}" />
+				</manifest>
+			</jar> 
+			<echo>+---------------------------------------------------------+</echo>
+			<echo>+ copy common jar file +</echo>
+			<echo>+---------------------------------------------------------+</echo>
+			<copy todir="${basedir}/WebContent/WEB-INF/lib" file="dist/${common.jar}" />
+		</target>
+	<target name="init">
+		<property name="release" value="./dist" />
+		<mkdir dir="dist" />
+		<mkdir dir="build/classes" />
+		<mkdir dir="${common.build.dir}" />
+	</target>
+
+	<target name="compile" depends="init,common-jar">
+		<javac destdir="build/classes" debug="true" srcdir="${java.dir}">
+			<classpath refid="compile.classpath" />
+		</javac>
+
+	</target>
+	<target name="war" depends="compile">
+		<war destfile="dist/${project.name}.war" webxml="WebContent/WEB-INF/web.xml">
+			<fileset dir="WebContent" />
+			<lib dir="WebContent/WEB-INF/lib" />
+			<classes dir="build/classes" />
+			<classes dir="WebContent/resources" />
+		</war>
+	</target>
+</project>

@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:tx="http://www.springframework.org/schema/tx" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans  http://www.springframework.org/schema/beans/spring-beans-3.1.xsd  http://www.springframework.org/schema/context  http://www.springframework.org/schema/context/spring-context-3.1.xsd  http://www.springframework.org/schema/tx  http://www.springframework.org/schema/tx/spring-tx-3.1.xsd  http://www.springframework.org/schema/aop  http://www.springframework.org/schema/aop/spring-aop-3.1.xsd">
+
+    <bean id="dataSource" class="org.springframework.jndi.JndiObjectFactoryBean">
+		<property name="jndiName" value="jdbc/iControlE-Core"></property>
+		<property name="resourceRef" value="true" />
+	</bean>
+	
+	<tx:annotation-driven transaction-manager="txnManager" proxy-target-class="true"/>
+	
+	<bean id="jpaVendorAdapter" class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">	 	
+	 	<property name="showSql" value="false" />
+		<property name="generateDdl" value="false" />		
+		<property name="databasePlatform" value="org.hibernate.dialect.MySQLDialect" />
+    </bean>
+    
+	<bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+	    <property name="persistenceUnitName" value="iControlE-Core" />
+	 	<property name="dataSource" ref="dataSource" />
+	 	<property name="jpaVendorAdapter" ref="jpaVendorAdapter" />
+	 	<property name="jpaProperties">
+			<props>
+				<prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
+				<prop key="hibernate.connection.driver_class">com.mysql.jdbc.Driver</prop>
+				<prop key="hibernate.format_sql">false</prop>
+				<prop key="hibernate.show_sql">true</prop>
+				<prop key="hibernate.connection.release_mode">after_transaction</prop>
+				<prop key="hibernate.dbcp.initialSize">10</prop>
+				<prop key="hibernate.dbcp.maxActive">20</prop>
+				<prop key="hibernate.dbcp.maxIdle">20</prop>
+				<prop key="hibernate.dbcp.minIdle">2</prop>
+				<prop key="hibernate.hbm2ddl.auto">create</prop>
+				<prop key="hibernate.hbm2ddl.auto">update</prop>
+			</props>
+		</property>	
+	</bean>
+	 
+	<bean id="txnManager" class="org.springframework.orm.jpa.JpaTransactionManager">
+		<property name="entityManagerFactory" ref="entityManagerFactory" />		
+	</bean>
+	
+	<context:annotation-config />
+    <context:component-scan base-package="com.lnt.core"/>
+    
+	<bean id="pswdManager" class="com.lnt.core.manager.PasswordManager">
+		<property name="passwdPolicy" ref="passwdPolicy"/>
+	</bean>
+
+	<bean id="passwdPolicy" class="com.lnt.core.manager.PasswordPolicy">
+		<property name="passwordMinLength" value="8" />
+		<!-- <property name="upperCaseRegex" value="(^.*[A-Z].*$)" /> -->
+		<property name="lowerCaseRegex" value="(^.*[a-z].*$)" />
+		<property name="digitsRegex" value="(^.*[0-9].*$)" />
+		<property name="nonAlphaRegex" value="(^.*[~!@#$%^*&amp;;?.+_].*$)" />
+	</bean>
+	
+	<!-- <bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
+	    <property name="host" value="smtp.gmail.com" />
+	    <property name="port" value="587" />
+    	<property name="protocol" value="smtp" />
+    	<property name="username" value="test.lnttech@gmail.com" />
+    	<property name="password" value="newuser_123" />
+    	<property name="javaMailProperties">
+        	<props>
+            	<prop key="mail.smtps.auth">true</prop>
+            	<prop key="mail.smtp.starttls.enable">true</prop>
+            	<prop key="mail.transport.protocol">smtp</prop>
+        	</props>
+    	</property>
+	</bean> 
+ 
+	<bean id="mailMail" class="com.lnt.core.email.SMTPEmailSender">
+		<property name="mailSender" ref="mailSender" />
+	</bean> -->
+    
+    <bean id="sessionCache" factory-method="createInstance" class="com.lnt.core.common.cache.SessionCache">
+		<constructor-arg value="1" /> <!-- Simple Cache mechanism -->
+	</bean>
+	
+</beans>

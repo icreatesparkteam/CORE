@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context>
+              
+             <Resource name="jdbc/iControlE-Core" auth="Container"
+              type="javax.sql.DataSource"
+	          driverClassName="com.mysql.jdbc.Driver"
+	          factory="org.apache.tomcat.jdbc.pool.DataSourceFactory"
+              url="jdbc:mysql://localhost:3306/smart_home_core"
+              username="root" password="root"
+	          validationQuery="select 1"
+	          testOnBorrow="true"
+	          validationInterval="60000"
+              maxActive="10" maxIdle="5" minIdle="2" initialSize="3" />
+</Context>
