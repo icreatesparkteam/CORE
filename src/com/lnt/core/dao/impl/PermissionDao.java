@@ -17,7 +17,6 @@ public class PermissionDao extends AbstractAppDao<Permission, Integer> {
 	public Permission findPermissionNameByID(int roleId) {
 		Criterion criterion = Restrictions.eq("roleId", roleId);
 		Permission permission = findById(roleId);
-
 		return permission;
 	}
 }

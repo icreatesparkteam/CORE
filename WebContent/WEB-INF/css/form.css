@@ -1,19 +1,15 @@
-body {
-	background-color: #aaaaaa;
-}
-
 * {
 	margin: 5px;
 	padding: 5px;
 }
 
 #container {
-	width: 750px;
+	width: 700px;
 	background-color: white;
 	margin: auto;
-	margin-top: 10px;
-	margin-bottom: 10px;
-	box-shadow: 0 0 3px #999;
+	margin-top: -30px !important;
+	margin-left: -10px;
+	verticle-align: centre;
 }
 
 #Submit {
@@ -37,8 +33,11 @@ body {
 	color: red;
 }
 
-input[type="text"], input[type="password"], select, option, input[type="email"]
-	{
+select, option {
+	width: 325px;
+}
+
+.registartionFileds {
 	width: 325px;
 }
 
@@ -51,4 +50,20 @@ input[type="text"], input[type="password"], select, option, input[type="email"]
 	color: white;
 	font-size: 20px;
 	text-align: center;
+}
+
+.login {
+	margin-top: 200px !important;
+	width: 350px;
+	border: 3px solid gray;
+	padding: 20px;
+	height: 250px;
+	background-color: white;
+	margin: auto;
+	margin-bottom: 10px;
+	box-shadow: 0 0 3px #999;
+}
+
+.loginFileds {
+	width: 200px !important;
 }

@@ -3,7 +3,7 @@
 <head>
 
 <link rel="stylesheet" type="text/css" media="screen"
-	href="../css/Registration.css" />
+	href="../css/form.css" />
 <title></title>
 </head>
 <body>
@@ -85,13 +85,10 @@
 				}
 				return true;
 			}
-		</script>
+		</script><div id="parent">
 		<table border="0" cellpadding="5" cellspacing="0" width="600"
 			id="container">
-
-			<tr>
-				<td colspan="2"><img id="banner"></img></td>
-			</tr>
+			
 			<tr>
 				<td colspan="2"><h1 id="header">SERVICE PROVIDER
 						REGISTARTION</h1></td>
@@ -99,50 +96,50 @@
 
 			<tr>
 				<td><b>User Name:</b></td>
-				<td><input id="UserName" name="UserName" type="text" /></td>
+				<td><input id="UserName" name="UserName" type="text" class ="registartionFileds"/></td>
 			</tr>
 			<tr>
 				<td><b>Password:</b></td>
-				<td><input id="Password" name="Password" type="password" /></td>
+				<td><input id="Password" name="Password" type="password" class ="registartionFileds"/></td>
 			</tr>
 
 			<tr>
 				<td><b>Service Provider Name:</b></td>
 				<td><input id="serviceProviderName" name="serviceProviderName"
-					type="text" /></td>
+					type="text" class ="registartionFileds"/></td>
 			</tr>
 			<tr>
 				<td><b>Email address:</b></td>
-				<td><input id="EmailAddress" name="EmailAddress" type="text" /></td>
+				<td><input id="EmailAddress" name="EmailAddress" type="text" class ="registartionFileds"/></td>
 			</tr>
 			<tr>
 				<td><b>Phone:</b></td>
-				<td><input id="Phone" name="Phone" type="text" /></td>
+				<td><input id="Phone" name="Phone" type="text" class ="registartionFileds"/></td>
 			</tr>
 			<tr>
 				<td><b>Alternate Phone:</b></td>
-				<td><input id="AltPhone" name="AltPhone" type="text" /></td>
+				<td><input id="AltPhone" name="AltPhone" type="text" class ="registartionFileds"/></td>
 			</tr>
 
 			<tr>
 				<td><b>Address:</b></td>
-				<td><input id="Address" name="Address" type="text" /></td>
+				<td><input id="Address" name="Address" type="text" class ="registartionFileds" /></td>
 			</tr>
 			<tr>
 				<td><b>City:</b></td>
-				<td><input id="City" name="City" type="text" maxlength="120" /></td>
+				<td><input id="City" name="City" type="text" maxlength="120" class ="registartionFileds"/></td>
 			</tr>
 			<tr>
 				<td><b>State/Province:</b></td>
-				<td><input id="State" name="State" type="text" maxlength="120" /></td>
+				<td><input id="State" name="State" type="text" maxlength="120" class ="registartionFileds"/></td>
 			</tr>
 			<tr>
 				<td><b>Country:</b></td>
-				<td><input id="Country" name="Country" type="text" /></td>
+				<td><input id="Country" name="Country" type="text" class ="registartionFileds"/></td>
 			</tr>
 			<tr>
 				<td><b>Zip/Postal Code:</b></td>
-				<td><input id="Zip" name="Zip" type="text" maxlength="30" /></td>
+				<td><input id="Zip" name="Zip" type="text" maxlength="30" class ="registartionFileds"/></td>
 			</tr>
 			<tr>
 				<td><b>Active:</b></td>
@@ -154,7 +151,7 @@
 			</tr>
 			<tr>
 				<td><b>Security Question:</b></td>
-				<td><select name="Question">
+				<td><select name="Question" >
 						<option value="" selected>Select Security Question</option>
 						<option value="1">What was your childhood nickname?</option>
 						<option value="2">What is the name of your favorite
@@ -169,7 +166,7 @@
 			</tr>
 			<tr>
 				<td><b>Answer:</b></td>
-				<td><input id="Answer" name="Answer" type="text" /></td>
+				<td><input id="Answer" name="Answer" type="text" class ="registartionFileds"/></td>
 			</tr>
 
 			<tr>
@@ -177,6 +174,7 @@
 					type="submit" value="SUBMIT" /></td>
 			</tr>
 		</table>
+		</div>
 		<br />
 	</form>
 
