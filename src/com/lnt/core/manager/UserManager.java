@@ -98,9 +98,9 @@ public class UserManager implements IRegistrationManager {
 			ServiceProviderRegistrationDto dto = new ServiceProviderRegistrationDto();
 			dto.setServiceProviderName(serviceProviderRegistrationDto.getServiceProviderName());
 			dto.setUserName(serviceProviderRegistrationDto.getUserName());
-			dto.setState(serviceProviderRegistrationDto.getActive());
+			dto.setState(serviceProviderRegistrationDto.getState());
 			Role role = roleMgr.getRole(serviceProviderRegistrationDto.getRole());
-			dto.setRole(role.getName());
+			dto.setRole(role.getId());
 			
 			serviceProviderDtoList.add(dto);
 

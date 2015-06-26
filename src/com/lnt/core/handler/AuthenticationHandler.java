@@ -40,7 +40,7 @@ public class AuthenticationHandler implements IAuthenticationHandler {
 					401);
 		}
 
-		if ("n".equalsIgnoreCase(serviceProvider.getActive())) {
+		if (0 == (serviceProvider.getActive())) {
 			throw new AuthenticationException(
 					"Authentication failed :User marked as deleted  : "
 							+ userName, 401);

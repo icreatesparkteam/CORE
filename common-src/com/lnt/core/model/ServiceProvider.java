@@ -55,7 +55,7 @@ public class ServiceProvider  extends AbstractTimeStampEntity implements Seriali
 	private String primaryEmailId;
 
 	@Column(name = "ACTIVE", length = 10)
-	private String active;
+	private int active;
 
 	@Column(name = "QUESTION")
 	private String sQuestion;
@@ -72,11 +72,11 @@ public class ServiceProvider  extends AbstractTimeStampEntity implements Seriali
 	@Column(name = "ATTEMPTS_LEFT")
 	private int attemptsLeft;
 
-	public String getActive() {
+	public int getActive() {
 		return active;
 	}
 
-	public void setActive(String active) {
+	public void setActive(int active) {
 		this.active = active;
 	}
 

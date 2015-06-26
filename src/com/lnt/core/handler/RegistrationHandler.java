@@ -62,7 +62,7 @@ public class RegistrationHandler implements IRegistrationHandler {
 		ServiceProvider serviceProvider = new ServiceProvider();
 		serviceProvider = register.toServiceProvider(serviceProvider);
 		serviceProvider.setPassword(register.getPassword());
-		serviceProvider.setActive("y");
+		serviceProvider.setActive(1);
 		serviceProvider.setChangePassword("yes");
 		serviceProvider.setAttemptsLeft(IConstants.LOGIN_ATTEMPTS);
 		regMgr.createServiceProvider(serviceProvider);
@@ -111,7 +111,7 @@ public class RegistrationHandler implements IRegistrationHandler {
 		if (serviceProvider == null) {
 			throw new ServiceApplicationException("Invalid serviceProvider :");
 		}
-		serviceProvider.setActive("n");
+		serviceProvider.setActive(0);
 		regMgr.updateServiceProvider(serviceProvider);
 	}
 

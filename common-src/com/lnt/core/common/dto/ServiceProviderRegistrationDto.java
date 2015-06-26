@@ -32,7 +32,11 @@ public class ServiceProviderRegistrationDto {
 
 	private String changePassword;
 	
-	private String role;
+	private int role;
+	
+	private String sQuestion;
+
+	private String sAnswer;
 
 	public String getChangePassword() {
 		return changePassword;
@@ -143,6 +147,8 @@ public class ServiceProviderRegistrationDto {
 		serviceProvider.setCity(this.getCity());
 		serviceProvider.setState(this.getState());
 		serviceProvider.setCountry(this.getCountry());
+		serviceProvider.setsQuestion(this.getsQuestion());
+		serviceProvider.setsAnswer(this.getsAnswer());
 		return serviceProvider;
 	}
 
@@ -157,15 +163,33 @@ public class ServiceProviderRegistrationDto {
 		this.altPhoneNumber = serviceProvider.getAltPhoneNum();
 		this.primaryEmailId = serviceProvider.getPrimaryEmailId();
 		this.changePassword = serviceProvider.getChangePassword();
+		this.sQuestion = serviceProvider.getsQuestion();
+		this.sAnswer = serviceProvider.getsAnswer();
 		return this;
 	}
 
-	public String getRole() {
+	public int getRole() {
 		return role;
 	}
 
-	public void setRole(String role) {
+	public void setRole(int role) {
 		this.role = role;
+	}
+
+	public String getsQuestion() {
+		return sQuestion;
+	}
+
+	public void setsQuestion(String sQuestion) {
+		this.sQuestion = sQuestion;
+	}
+
+	public String getsAnswer() {
+		return sAnswer;
+	}
+
+	public void setsAnswer(String sAnswer) {
+		this.sAnswer = sAnswer;
 	}
 
 	

@@ -19,6 +19,7 @@ import com.lnt.core.common.util.ESessionStatus;
 import com.lnt.core.common.util.IConstants;
 import com.lnt.core.manager.ISessionManager;
 import com.lnt.core.manager.IRegistrationManager;
+import com.lnt.core.model.Permission;
 import com.lnt.core.model.ServiceProvider;
 
 import com.lnt.core.model.UserLoginSession;
@@ -86,6 +87,13 @@ public class SessionHandler implements ISessionHandler {
 			logger.info("SessionHandler user id   {} ", id);
 			ServiceProvider serviceProvider = regMgr.getServiceProviderById(id);
 			sessionInfo.setServiceProvider(serviceProvider);
+			List<Permission> permissions = null;
+			try {
+				permissions = regMgr.getUserPermissions(id);
+			} catch (ServiceApplicationException e) {
+				e.printStackTrace();
+			}
+			sessionInfo.setPermissions(permissions);
 			sessionInfo.setLastAccessedTime(System.currentTimeMillis());
 			SessionCache.getInstance().put(sessionId, sessionInfo);
 		}
