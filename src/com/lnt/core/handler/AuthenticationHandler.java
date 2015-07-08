@@ -14,7 +14,7 @@ import com.lnt.core.common.exception.AuthenticationException;
 import com.lnt.core.common.exception.ServiceApplicationException;
 import com.lnt.core.common.util.IConstants;
 import com.lnt.core.manager.ISessionManager;
-import com.lnt.core.manager.IRegistrationManager;
+import com.lnt.core.manager.IOEMManager;
 import com.lnt.core.model.ServiceProvider;
 import com.lnt.core.model.UserLoginSession;
 
@@ -23,7 +23,7 @@ public class AuthenticationHandler implements IAuthenticationHandler {
 	private static final Logger logger = LoggerFactory
 			.getLogger(AuthenticationHandler.class);
 	@Autowired
-	private IRegistrationManager regMgr;
+	private IOEMManager regMgr;
 
 	@Autowired
 	private ISessionManager sessionMgr;

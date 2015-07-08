@@ -18,7 +18,7 @@ import com.lnt.core.common.util.DateUtil;
 import com.lnt.core.common.util.ESessionStatus;
 import com.lnt.core.common.util.IConstants;
 import com.lnt.core.manager.ISessionManager;
-import com.lnt.core.manager.IRegistrationManager;
+import com.lnt.core.manager.IOEMManager;
 import com.lnt.core.model.Permission;
 import com.lnt.core.model.ServiceProvider;
 
@@ -34,7 +34,7 @@ public class SessionHandler implements ISessionHandler {
 	ISessionManager sessionMgr;
 
 	@Autowired
-	IRegistrationManager regMgr;
+	IOEMManager regMgr;
 
 	@Override
 	@Transactional

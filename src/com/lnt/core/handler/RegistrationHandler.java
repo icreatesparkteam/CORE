@@ -21,7 +21,7 @@ import com.lnt.core.common.util.Validator;
 
 import com.lnt.core.manager.IPasswordManager;
 
-import com.lnt.core.manager.IRegistrationManager;
+import com.lnt.core.manager.IOEMManager;
 import com.lnt.core.model.ServiceProvider;
 
 
@@ -31,7 +31,7 @@ public class RegistrationHandler implements IRegistrationHandler {
 			.getLogger(RegistrationHandler.class);
 
 	@Autowired
-	private IRegistrationManager regMgr;
+	private IOEMManager regMgr;
 
 	@Autowired
 	private IPasswordManager passwordManager;
