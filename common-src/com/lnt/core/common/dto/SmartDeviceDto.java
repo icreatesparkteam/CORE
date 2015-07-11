@@ -13,6 +13,10 @@ public class SmartDeviceDto {
 	private String deviceID;
 	
 	private String status;
+	
+	private String manufacturerID;
+	
+	private int deviceStatus;
 
 	public String getStatus() {
 		return status;
@@ -26,6 +30,8 @@ public class SmartDeviceDto {
 		smartDevice.setGatewayID(this.getGatewayID());
 		smartDevice.setActive(this.getStatus());
 		smartDevice.setDeviceID(this.getDeviceID());
+		smartDevice.setDeviceStatus(this.deviceStatus);
+		smartDevice.setManufacturerID(this.manufacturerID);
 		return smartDevice;
 	}
 
@@ -33,6 +39,8 @@ public class SmartDeviceDto {
 		this.gatewayID = smartDevice.getGatewayID();
 		this.deviceID = smartDevice.getDeviceID();
 		this.status = smartDevice.getActive();
+		this.manufacturerID = smartDevice.getManufacturerID();
+		this.deviceStatus = smartDevice.getDeviceStatus();
 		return this;
 	}
 
@@ -50,6 +58,22 @@ public class SmartDeviceDto {
 
 	public void setDeviceID(String deviceID) {
 		this.deviceID = deviceID;
+	}
+
+	public String getManufacturerID() {
+		return manufacturerID;
+	}
+
+	public void setManufacturerID(String manufacturerID) {
+		this.manufacturerID = manufacturerID;
+	}
+
+	public int getDeviceStatus() {
+		return deviceStatus;
+	}
+
+	public void setDeviceStatus(int deviceStatus) {
+		this.deviceStatus = deviceStatus;
 	}
 
 }

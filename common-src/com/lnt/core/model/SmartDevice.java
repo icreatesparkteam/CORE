@@ -25,6 +25,12 @@ public class SmartDevice  extends AbstractTimeStampEntity implements Serializabl
 
 	@Column(name = "DEVICE_ID", length = 50)
 	private String deviceID;
+	
+	@Column(name = "MANUFACTURER_ID", length = 50)
+	private String manufacturerID;
+	
+	@Column(name = "DEVICE_STATUS", length = 10)
+	private int deviceStatus;
 
 	@Column(name = "ACTIVE", length = 10)
 	private String active;
@@ -54,6 +60,22 @@ public class SmartDevice  extends AbstractTimeStampEntity implements Serializabl
 
 	public void setDeviceID(String deviceID) {
 		this.deviceID = deviceID;
+	}
+	
+	public String getManufacturerID() {
+		return manufacturerID;
+	}
+
+	public void setManufacturerID(String manufacturerID) {
+		this.manufacturerID = manufacturerID;
+	}
+	
+	public int getDeviceStatus() {
+		return deviceStatus;
+	}
+
+	public void setDeviceStatus(int deviceStatus) {
+		this.deviceStatus = deviceStatus;
 	}
 
 	public int getId() {

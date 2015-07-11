@@ -28,7 +28,7 @@ public class LoginTest {
 			JsonMappingException, IOException {
 
 		loginUser();
-		//createSP(token);
+		createSP(token);
 
 	}
 
@@ -37,7 +37,7 @@ public class LoginTest {
 			JsonMappingException, IOException {
 		System.out.println("Login user method : ");
 		MultivaluedMap<String, String> inputMap = new MultivaluedMapImpl();
-		inputMap.add("username", "servpro1");
+		inputMap.add("username", "oem");
 		inputMap.add("password", "Newuser@123");
 		System.out.println("Login user method : inputMap " + inputMap);
 		WebResource webResource = client.resource(UrlConstant + "auth/login");
@@ -63,9 +63,9 @@ public class LoginTest {
 		reg.setPassword("Newuser@123");
 		reg.setAddress("Munnekolala 2,Banagalore");
 		reg.setPhoneNumber("91-7829157989");
-		reg.setPrimaryEmailId("Murali.Dhuli@gmail.com");
+		reg.setPrimaryEmailId("atanu.niyogi1@gmail.com");
 		reg.setRole(ERole.SERVICE_PROVIDER.getId());
-		reg.setAltPhoneNumber("91-7829157944");
+		reg.setAltPhoneNumber("91-7829157444");
 		reg.setCity("Bangalore");
 		reg.setState("KA");
 		reg.setCountry("India");
