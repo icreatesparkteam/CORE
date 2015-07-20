@@ -37,7 +37,7 @@ public class LoginTest {
 			JsonMappingException, IOException {
 		System.out.println("Login user method : ");
 		MultivaluedMap<String, String> inputMap = new MultivaluedMapImpl();
-		inputMap.add("username", "oem");
+		inputMap.add("username", "servpro2");
 		inputMap.add("password", "Newuser@123");
 		System.out.println("Login user method : inputMap " + inputMap);
 		WebResource webResource = client.resource(UrlConstant + "auth/login");
