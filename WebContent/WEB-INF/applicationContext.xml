@@ -33,7 +33,7 @@
 				<prop key="hibernate.dbcp.maxActive">20</prop>
 				<prop key="hibernate.dbcp.maxIdle">20</prop>
 				<prop key="hibernate.dbcp.minIdle">2</prop>
-				<prop key="hibernate.hbm2ddl.auto">create</prop>
+				<!-- <prop key="hibernate.hbm2ddl.auto">create</prop> -->
 				<prop key="hibernate.hbm2ddl.auto">update</prop>
 			</props>
 		</property>	

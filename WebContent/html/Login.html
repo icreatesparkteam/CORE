@@ -4,26 +4,73 @@
 
 <link rel="stylesheet" type="text/css" media="screen"
 	href="css/form.css" />
+	<script type="text/javascript" src="js/config.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <title></title>
 </head>
 <body>
-
-	<form action="" id="loginForm" method="post"
-		onsubmit="return ValidateForm(this);">
+<!-- 	<form action="" id="loginForm" method="post"
+		onsubmit="return ValidateForm(this);">-->
+		
+		<form action="" id="loginForm" method="post">
+		
 		<script type="text/javascript">
-			function ValidateForm(frm) {
-				if (frm.UserName.value == "") {
-					alert('User Name is required.');
-					frm.UserName.focus();
-					return false;
-				}
-				if (frm.Password.value == "") {
-					alert('Password is required.');
-					frm.Password.focus();
-					return false;
-				}
-				return true;
-			}
+		function loginfunction(){	
+			var form = document.getElementById("loginForm");     	
+			
+        	var username=document.getElementById("UserName").value;
+        	var password=document.getElementById("Password").value;
+        	
+        	if (username === "" && password === "") {
+        		alert('Please enter your credentials');		                
+            } else if (username === "") {
+            	alert('User Name is required.');
+            	form.UserName.focus();
+            } else if (password === "") {
+            	alert('Password is required.');
+            	form.Password.focus();
+            }
+            else{
+            	/*$().callAPI({
+                    'successapicallback': loginSuccess,
+                    'errorapicallback': loginError,
+                    'data': {
+                        "username": username,
+                        "password": password
+                    },
+                    'url': config.Server_IP + config.loginURL,
+                    'type': 'post',
+                    'contentType': 'application/x-www-form-urlencoded',
+                    'accepts': 'text/plain; charset=utf-8' ,
+                });*/
+                
+            	  $.ajax(
+                          {
+                              type: "POST",
+                              url: config.Server_IP + config.loginURL,
+                              data: { 
+                                  'username': username, 
+                                  'password': password 
+                              }, 
+                              contentType: "application/x-www-form-urlencoded",
+                              
+                              success: function (data) {
+          							//goto main page
+          							
+          							alert("success");
+          							window.location = "mainPage.html";
+          					
+                              },
+                              error: function () {
+                                  alert('Invalid Credentials');  
+                              	//form.UserName.focus();
+              					return false;
+                              }
+                          });
+            }
+		}
+		
+				
 		</script>
 		<table border="0" cellpadding="5" cellspacing="0" width="600"
 			 class="login">
@@ -39,8 +86,9 @@
 			</tr>
 
 			<tr>
-				<td colspan="2" align="center"><input id="Submit" name="Submit"
-					type="submit" value="LOG IN" /></td>
+			
+				<td colspan="2" align="center"><input type="button" id="loginButton" name="Submit" onclick=loginfunction()
+					 value="LOG IN" /></td>
 			</tr>
 		</table>
 		<br />
