@@ -3,7 +3,9 @@
 <head>
 
 <link rel="stylesheet" type="text/css" media="screen"
-	href="css/form.css" />
+	href="/iControlE-Core/css/form.css" />
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
 <title></title>
 </head>
 <body>
@@ -82,6 +84,27 @@
 					alert('Answer is required.');
 					frm.Answer.focus();
 					return false;
+				}
+				else {
+					$.ajax({
+						type : "POST",
+						url : config.Server_IP + config.createServiceProvider,
+						data : {
+							//yet to be done
+							'username' : username,
+							'password' : password
+						},
+						contentType : "application/x-www-form-urlencoded",
+
+						success : function(data) {														
+							alert("Service provider added successfully");
+						},
+						error : function() {
+							alert('Issue in registration');
+							//form.UserName.focus();
+							return false;
+						}
+					});
 				}
 				return true;
 			}
