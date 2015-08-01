@@ -77,7 +77,7 @@ public class RegistrationService {
 	@GET
 	@Produces({ MediaType.APPLICATION_JSON })
 	@Path("/{username}")
-	@PreAuthorize("hasAuthority('VIEW_PERSONAL_DATA')")
+//	@PreAuthorize("hasAuthority('VIEW_PERSONAL_DATA')")
 	public Response getUser(@PathParam("username") String userName) {
 		logger.info("URegistrationService getUser method");
 		try {
