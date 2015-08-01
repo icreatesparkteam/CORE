@@ -3,8 +3,9 @@
 <head>
 
 <link rel="stylesheet" type="text/css" media="screen"
-	href="/iControlE-Core/css/form.css" />
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	href="../css/form.css" />
+<script type="text/javascript" src="../js/config.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 
 <title></title>
 </head>
@@ -14,99 +15,149 @@
 		onsubmit="return ValidateForm(this);">
 		<script type="text/javascript">
 			function ValidateForm(frm) {
-				if (frm.UserName.value == "") {
+				var userName=document.getElementById("userName").value;
+				var password=document.getElementById("password").value;
+				var serviceProviderName=document.getElementById("serviceProviderName").value;
+				var emailAddress=document.getElementById("emailAddress").value;
+				var phone=document.getElementById("phone").value;
+				var altPhone=document.getElementById("altPhone").value;
+				var address=document.getElementById("address").value;
+				var city=document.getElementById("city").value;
+				var state=document.getElementById("state").value;
+				var country=document.getElementById("country").value;
+				var zipCode=document.getElementById("zipCode").value;
+				
+				var activeElement=document.getElementById("active");
+				var activeValue=activeElement.options[activeElement.selectedIndex].value;
+				//alert("activeValue::"+activeValue);
+
+				var questionElement=document.getElementById("question");
+				var questionValue=questionElement.options[questionElement.selectedIndex].value;
+				//alert("questionValue::"+questionValue);
+				var answer=document.getElementById("answer").value;
+								
+				
+				if (userName === "") {
 					alert('User Name is required.');
-					frm.UserName.focus();
+					frm.userName.focus();
 					return false;
 				}
-				if (frm.Password.value == "") {
+				if (password === "") {
 					alert('Password is required.');
-					frm.Password.focus();
+					frm.password.focus();
 					return false;
 				}
-				if (frm.serviceProviderName.value == "") {
-					alert('Service ProviderName is required.');
+				if (serviceProviderName === "") {
+					alert('Service Provider Name is required.');
 					frm.serviceProviderName.focus();
 					return false;
 				}
-				if (frm.EmailAddress.value == "") {
+				if (emailAddress === "") {
 					alert('Email address is required.');
-					frm.EmailAddress.focus();
+					frm.emailAddress.focus();
 					return false;
 				}
-				if (frm.EmailAddress.value.indexOf("@") < 1
-						|| frm.EmailAddress.value.indexOf(".") < 1) {
+				if (emailAddress.indexOf("@") < 1
+						|| emailAddress.indexOf(".") < 1) {
 					alert('Please enter a valid email address.');
-					frm.EmailAddress.focus();
+					frm.emailAddress.focus();
 					return false;
 				}
-				if (frm.Phone.value == "") {
+				if (phone === "") {
 					alert('Phone number is required.');
-					frm.Phone.focus();
+					frm.phone.focus();
 					return false;
 				}
-				if (frm.Address.value == "") {
+				if (address === "") {
 					alert('Address is required.');
-					frm.Address.focus();
+					frm.address.focus();
 					return false;
 				}
-				if (frm.City.value == "") {
+				if (city === "") {
 					alert('City is required.');
-					frm.City.focus();
+					frm.city.focus();
 					return false;
 				}
-				if (frm.State.value == "") {
+				if (state === "") {
 					alert('State is required.');
-					frm.State.focus();
+					frm.state.focus();
 					return false;
 				}
-				if (frm.Country.value == "") {
+				if (country === "") {
 					alert('Country is required.');
-					frm.Country.focus();
+					frm.country.focus();
 					return false;
 				}
-				if (frm.Zip.value == "") {
+				if (zipCode === "") {
 					alert('Zip Code is required.');
-					frm.Zip.focus();
+					frm.zipCode.focus();
 					return false;
 				}
-				if (frm.Active.value == "") {
+				if (active === "") {
 					alert('Select Active Status');
-					frm.Active.focus();
+					frm.active.focus();
 					return false;
 				}
-				if (frm.Question.value == "") {
+				if (question === "") {
 					alert('Select Security Question');
-					frm.Question.focus();
+					frm.question.focus();
 					return false;
 				}
-				if (frm.Answer.value == "") {
+				if (answer == "") {
 					alert('Answer is required.');
-					frm.Answer.focus();
+					frm.answer.focus();
 					return false;
 				}
-				else {
+				else {			
+					
+					alert(userName+ ""+password);
 					$.ajax({
 						type : "POST",
 						url : config.Server_IP + config.createServiceProvider,
-						data : {
-							//yet to be done
-							'username' : username,
-							'password' : password
+						data : {							
+							
+							
+							
+							'username' : userName,
+							'password' : password,
+							'serviceProviderName':serviceProviderName,
+							'emailAddress':emailAddress,
+							'phone':phone,
+							'altPhone':altPhone,
+							'address':address,
+							'city':city,
+							'state':state,
+							'country':country,
+							'zipCode':zipCode,
+							'active':active,
+							'question':question,
+							'answer':answer
+							
 						},
-						contentType : "application/x-www-form-urlencoded",
+						contentType : "application/json",
 
-						success : function(data) {														
+						success : function(data) {
 							alert("Service provider added successfully");
+							var text1=document.getElementById("text1");
+							text1.innerText=userName+" password:: "+password+"  serviceProviderName::"+serviceProviderName+"  emailAddress::"+emailAddress
+							+" phone::"+phone+"  altPhone"+altPhone+"  address::"+address+"  city::"+city+"   state::"+state+"  country::"+country+
+							"zipCode::"+zipCode+"  active::"+active+ "  question::"+question+"  answer::"+answer;
+							
+							
 						},
 						error : function() {
 							alert('Issue in registration');
+							text1.innerText=username+" password:: "+password+"  serviceProviderName::"+serviceProviderName+"  emailAddress::"+emailAddress
+							+" phone::"+phone+"  altPhone"+altPhone+"  address::"+address+"  city::"+city+"   state::"+state+"  country::"+country+
+							"zipCode::"+zipCode+"  active::"+active+ "  question::"+question+"  answer::"+answer;
+							
+							
 							//form.UserName.focus();
-							return false;
+							//return false;
 						}
 					});
 				}
-				return true;
+				//return true;
 			}
 		</script><div id="parent">
 		<table border="0" cellpadding="5" cellspacing="0" width="600"
@@ -119,11 +170,11 @@
 
 			<tr>
 				<td><b>User Name:</b></td>
-				<td><input id="UserName" name="UserName" type="text" class ="registartionFileds"/></td>
+				<td><input id="userName" name="UserName" type="text" class ="registartionFileds"/></td>
 			</tr>
 			<tr>
 				<td><b>Password:</b></td>
-				<td><input id="Password" name="Password" type="password" class ="registartionFileds"/></td>
+				<td><input id="password" name="Password" type="password" class ="registartionFileds"/></td>
 			</tr>
 
 			<tr>
@@ -133,40 +184,40 @@
 			</tr>
 			<tr>
 				<td><b>Email address:</b></td>
-				<td><input id="EmailAddress" name="EmailAddress" type="text" class ="registartionFileds"/></td>
+				<td><input id="emailAddress" name="EmailAddress" type="text" class ="registartionFileds"/></td>
 			</tr>
 			<tr>
 				<td><b>Phone:</b></td>
-				<td><input id="Phone" name="Phone" type="text" class ="registartionFileds"/></td>
+				<td><input id="phone" name="Phone" type="text" class ="registartionFileds"/></td>
 			</tr>
 			<tr>
 				<td><b>Alternate Phone:</b></td>
-				<td><input id="AltPhone" name="AltPhone" type="text" class ="registartionFileds"/></td>
+				<td><input id="altPhone" name="AltPhone" type="text" class ="registartionFileds"/></td>
 			</tr>
 
 			<tr>
 				<td><b>Address:</b></td>
-				<td><input id="Address" name="Address" type="text" class ="registartionFileds" /></td>
+				<td><input id="address" name="Address" type="text" class ="registartionFileds" /></td>
 			</tr>
 			<tr>
 				<td><b>City:</b></td>
-				<td><input id="City" name="City" type="text" maxlength="120" class ="registartionFileds"/></td>
+				<td><input id="city" name="City" type="text" maxlength="120" class ="registartionFileds"/></td>
 			</tr>
 			<tr>
 				<td><b>State/Province:</b></td>
-				<td><input id="State" name="State" type="text" maxlength="120" class ="registartionFileds"/></td>
+				<td><input id="state" name="State" type="text" maxlength="120" class ="registartionFileds"/></td>
 			</tr>
 			<tr>
 				<td><b>Country:</b></td>
-				<td><input id="Country" name="Country" type="text" class ="registartionFileds"/></td>
+				<td><input id="country" name="Country" type="text" class ="registartionFileds"/></td>
 			</tr>
 			<tr>
 				<td><b>Zip/Postal Code:</b></td>
-				<td><input id="Zip" name="Zip" type="text" maxlength="30" class ="registartionFileds"/></td>
+				<td><input id="zipCode" name="ZipCode" type="text" maxlength="30" class ="registartionFileds"/></td>
 			</tr>
 			<tr>
 				<td><b>Active:</b></td>
-				<td><select name="Active">
+				<td><select name="Active" id="active">
 						<option value="" selected>Select Active Status</option>
 						<option value="1">Yes</option>
 						<option value="2">No</option>
@@ -174,7 +225,7 @@
 			</tr>
 			<tr>
 				<td><b>Security Question:</b></td>
-				<td><select name="Question" >
+				<td><select name="Question" id="question" >
 						<option value="" selected>Select Security Question</option>
 						<option value="1">What was your childhood nickname?</option>
 						<option value="2">What is the name of your favorite
@@ -189,17 +240,18 @@
 			</tr>
 			<tr>
 				<td><b>Answer:</b></td>
-				<td><input id="Answer" name="Answer" type="text" class ="registartionFileds"/></td>
+				<td><input id="answer" name="Answer" type="text" class ="registartionFileds"/></td>
 			</tr>
 
 			<tr>
-				<td colspan="2" align="center"><input id="Submit" name="Submit"
+				<td colspan="2" align="center"><input id="submit" name="Submit"
 					type="submit" value="SUBMIT" /></td>
 			</tr>
 		</table>
 		</div>
 		<br />
 	</form>
+	<div id="text1"></div>
 
 </body>
 </html>

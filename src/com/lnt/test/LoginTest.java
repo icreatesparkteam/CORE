@@ -28,16 +28,42 @@ public class LoginTest {
 			JsonMappingException, IOException {
 
 		loginUser();
-		createSP(token);
+		//createSP(token);
+		getSP(token);
 
 	}
 
+	private static void getSP(String token) throws JsonGenerationException,
+	JsonMappingException, IOException {
+		try{				
+		System.out.println("Get Service Providers");	
+		WebResource webResource = client
+				   .resource(UrlConstant+ "registration/serviceproviderlist");
+				
+		ClientResponse response = webResource.type("application/json")
+				.header(IConstants.TOKEN_HEADER_KEY, token)
+				.get(ClientResponse.class);
+
+		/*if (response.getStatus() != 200) {
+		   throw new RuntimeException("Failed : HTTP error code : "
+			+ response.getStatus());
+		}*/
+
+		String output = response.getEntity(String.class);
+
+		System.out.println("Output from Server .... \n");
+		System.out.println(output);
+		}
+		catch (Exception e) {			 
+			e.printStackTrace();	 
+		  }
+	}
 	
 	private static void loginUser() throws JsonGenerationException,
 			JsonMappingException, IOException {
 		System.out.println("Login user method : ");
 		MultivaluedMap<String, String> inputMap = new MultivaluedMapImpl();
-		inputMap.add("username", "servpro2");
+		inputMap.add("username", "oem");
 		inputMap.add("password", "Newuser@123");
 		System.out.println("Login user method : inputMap " + inputMap);
 		WebResource webResource = client.resource(UrlConstant + "auth/login");
