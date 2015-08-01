@@ -17,6 +17,12 @@ public class SmartDeviceDto {
 	private String manufacturerID;
 	
 	private int deviceStatus;
+	
+	private String endpoint;
+	
+	private String cluster;
+	
+	private int id;
 
 	public String getStatus() {
 		return status;
@@ -32,6 +38,8 @@ public class SmartDeviceDto {
 		smartDevice.setDeviceID(this.getDeviceID());
 		smartDevice.setDeviceStatus(this.deviceStatus);
 		smartDevice.setManufacturerID(this.manufacturerID);
+		smartDevice.setCluster(this.cluster);
+		smartDevice.setEndpoint(this.endpoint);
 		return smartDevice;
 	}
 
@@ -41,6 +49,9 @@ public class SmartDeviceDto {
 		this.status = smartDevice.getActive();
 		this.manufacturerID = smartDevice.getManufacturerID();
 		this.deviceStatus = smartDevice.getDeviceStatus();
+		this.cluster = smartDevice.getCluster();
+		this.endpoint = smartDevice.getEndpoint();
+		this.id = smartDevice.getId();
 		return this;
 	}
 
@@ -74,6 +85,30 @@ public class SmartDeviceDto {
 
 	public void setDeviceStatus(int deviceStatus) {
 		this.deviceStatus = deviceStatus;
+	}
+
+	public String getEndpoint() {
+		return endpoint;
+	}
+
+	public void setEndpoint(String endpoint) {
+		this.endpoint = endpoint;
+	}
+
+	public String getCluster() {
+		return cluster;
+	}
+
+	public void setCluster(String cluster) {
+		this.cluster = cluster;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
 	}
 
 }

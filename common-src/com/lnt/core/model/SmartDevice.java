@@ -34,6 +34,12 @@ public class SmartDevice  extends AbstractTimeStampEntity implements Serializabl
 
 	@Column(name = "ACTIVE", length = 10)
 	private String active;
+	
+	@Column(name = "ENDPOINT", length = 10)
+	private String endpoint;
+	
+	@Column(name = "CLUSTER", length = 10)
+	private String cluster;
 
 	public String getActive() {
 		return active;
@@ -84,6 +90,22 @@ public class SmartDevice  extends AbstractTimeStampEntity implements Serializabl
 
 	public void setId(int id) {
 		this.id = id;
+	}
+	
+	public String getEndpoint() {
+		return endpoint;
+	}
+
+	public void setEndpoint(String endpoint) {
+		this.endpoint = endpoint;
+	}
+	
+	public String getCluster() {
+		return cluster;
+	}
+
+	public void setCluster(String cluster) {
+		this.cluster = cluster;
 	}
 
 

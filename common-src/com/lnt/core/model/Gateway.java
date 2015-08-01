@@ -31,6 +31,9 @@ public class Gateway  extends AbstractTimeStampEntity implements Serializable{
 
 	@Column(name = "ACTIVE", length = 10)
 	private String active;
+	
+	@Column(name = "IP_ADDRESS", length = 20)
+	private String ipAddress;
 
 	public String getActive() {
 		return active;
@@ -73,6 +76,14 @@ public class Gateway  extends AbstractTimeStampEntity implements Serializable{
 
 	public void setServiceProviderID(int id) {
 		this.serviceProviderID = id;
+	}
+	
+	public String getIPAddress() {
+		return ipAddress;
+	}
+
+	public void setIPAddress(String ipAddress) {
+		this.ipAddress = ipAddress;
 	}
 
 }

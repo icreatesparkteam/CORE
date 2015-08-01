@@ -15,6 +15,8 @@ public class GatewayDto {
 	private int userID;
 
 	private String status;
+	
+	private String ipAddress;
 
 	public int getUserID() {
 		return userID;
@@ -41,17 +43,21 @@ public class GatewayDto {
 	}
 
 	
-	public Gateway toServiceProvider(Gateway gateway) throws ServiceApplicationException {
+	public Gateway toGateway(Gateway gateway) throws ServiceApplicationException {
 		gateway.setUserID(this.getUserID());
 		gateway.setServiceProviderID(this.getServiceProviderID());
 		gateway.setGatewayID(this.getGatewayID());
 		gateway.setActive(this.getStatus());
+		gateway.setIPAddress(this.ipAddress);
 		return gateway;
 	}
 
 	public GatewayDto formGateway(Gateway gateway) {
 		this.userID = gateway.getUserID();
 		this.serviceProviderID = gateway.getServiceProviderID();
+		this.ipAddress = gateway.getIPAddress();
+		this.gatewayID = gateway.getGatewayID();
+		this.status = gateway.getActive();
 		return this;
 	}
 
@@ -61,6 +67,14 @@ public class GatewayDto {
 
 	public void setGatewayID(String gatewayID) {
 		this.gatewayID = gatewayID;
+	}
+
+	public String getIpAddress() {
+		return ipAddress;
+	}
+
+	public void setIpAddress(String ipAddress) {
+		this.ipAddress = ipAddress;
 	}
 
 }
