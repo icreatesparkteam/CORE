@@ -7,6 +7,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.lnt.core.common.dto.ServiceProviderRegistrationDto;
 import com.lnt.core.common.exception.ServiceApplicationException;
@@ -85,6 +86,7 @@ public class OEMManager implements IOEMManager {
 	}
 
 	@Override
+//	@Transactional
 	public List<ServiceProviderRegistrationDto> getAllServiceProviderlist() throws ServiceApplicationException {
 		logger.info("UserManager  getAllServiceProviderlist!!!!!!!!!!!!!!");
 		List<ServiceProviderRegistrationDto> serviceProviderDtoList = new ArrayList<>();
@@ -99,8 +101,8 @@ public class OEMManager implements IOEMManager {
 			dto.setServiceProviderName(serviceProviderRegistrationDto.getServiceProviderName());
 			dto.setUserName(serviceProviderRegistrationDto.getUserName());
 			dto.setState(serviceProviderRegistrationDto.getState());
-			Role role = roleMgr.getRole(serviceProviderRegistrationDto.getRole());
-			dto.setRole(role.getId());
+//			Role role = roleMgr.getRole(serviceProviderRegistrationDto.getRole());
+//			dto.setRole(role.getId());
 			
 			serviceProviderDtoList.add(dto);
 
