@@ -11,7 +11,7 @@
 	margin-left: -10px;
 	verticle-align: centre;
 }
-
+input[type="button"],
 #loginButton,
 #submit {
 	width: 400px;
@@ -67,4 +67,12 @@ select, option {
 
 .loginFileds {
 	width: 200px !important;
+}
+th{
+	background-color: green;	
+	height: 40px;
+	background-color: green;
+	color: white;
+	font-size: 20px;
+	
 }

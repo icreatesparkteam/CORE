@@ -11,10 +11,11 @@
 </head>
 <body>
 
-	<form action="" id="registrationForm" method="post"
-		onsubmit="return ValidateForm(this);">
+	<form action="" id="registrationForm" >		
 		<script type="text/javascript">
-			function ValidateForm(frm) {
+			function Submitfunction() {
+				var frm = document.getElementById("registrationForm");			
+				
 				var userName=document.getElementById("userName").value;
 				var password=document.getElementById("password").value;
 				var serviceProviderName=document.getElementById("serviceProviderName").value;
@@ -35,8 +36,14 @@
 				var questionValue=questionElement.options[questionElement.selectedIndex].value;
 				//alert("questionValue::"+questionValue);
 				var answer=document.getElementById("answer").value;
-								
+				if (emailAddress === "") {
+					alert('Email address is required.');
+					frm.emailAddress.focus();
+					return false;
+				}
+				//for the time being removing all null check validations
 				
+			/*	
 				if (userName === "") {
 					alert('User Name is required.');
 					frm.userName.focus();
@@ -107,53 +114,78 @@
 					alert('Answer is required.');
 					frm.answer.focus();
 					return false;
-				}
+				}*/
 				else {			
-					
-					alert(userName+ ""+password);
+					var token = window.sessionStorage.getItem("token");
+		//			alert(userName+ "   "+password+"  token::"+token);
+					var jsonobj = {
+						'userName' : userName,
+						'password' : password,
+						'serviceProviderName':serviceProviderName,
+						'primaryEmailId':emailAddress,
+						'phoneNumber':phone,
+						'altPhoneNumber':altPhone,
+						'address':address,
+						'city':city,
+						'state':state,
+						'country':country,
+						//'zipCode':zipCode,
+						'status':1,
+						'sQuestion':question,
+						'sAnswer':answer,
+						'changePassword':null,
+						'role':1												
+					};					 
+
 					$.ajax({
 						type : "POST",
 						url : config.Server_IP + config.createServiceProvider,
-						data : {							
-							
-							
-							
-							'username' : userName,
+						headers: {
+				             'lnt_access_token': window.sessionStorage.getItem("token")
+				         },
+						
+					/*	data : {
+							'userName' : userName,
 							'password' : password,
 							'serviceProviderName':serviceProviderName,
-							'emailAddress':emailAddress,
-							'phone':phone,
-							'altPhone':altPhone,
+							'primaryEmailId':emailAddress,
+							'phoneNumber':phone,
+							'altPhoneNumber':altPhone,
 							'address':address,
 							'city':city,
 							'state':state,
 							'country':country,
-							'zipCode':zipCode,
-							'active':active,
-							'question':question,
-							'answer':answer
+							//'zipCode':zipCode,
+							'status':1,
+							'sQuestion':question,
+							'sAnswer':answer,
+							'changePassword':null,
+							'role':1						
 							
-						},
+						},*/
+						data:jsonobj,
+						//dataType: "json",
 						contentType : "application/json",
+						accepts: "application/json",
 
 						success : function(data) {
 							alert("Service provider added successfully");
-							var text1=document.getElementById("text1");
+					/*		var text1=document.getElementById("text1");
 							text1.innerText=userName+" password:: "+password+"  serviceProviderName::"+serviceProviderName+"  emailAddress::"+emailAddress
 							+" phone::"+phone+"  altPhone"+altPhone+"  address::"+address+"  city::"+city+"   state::"+state+"  country::"+country+
-							"zipCode::"+zipCode+"  active::"+active+ "  question::"+question+"  answer::"+answer;
+							"zipCode::"+zipCode+"  active::"+active+ "  question::"+question+"  answer::"+answer;*/
 							
 							
 						},
 						error : function() {
 							alert('Issue in registration');
-							text1.innerText=username+" password:: "+password+"  serviceProviderName::"+serviceProviderName+"  emailAddress::"+emailAddress
+						/*	text1.innerText=username+" password:: "+password+"  serviceProviderName::"+serviceProviderName+"  emailAddress::"+emailAddress
 							+" phone::"+phone+"  altPhone"+altPhone+"  address::"+address+"  city::"+city+"   state::"+state+"  country::"+country+
-							"zipCode::"+zipCode+"  active::"+active+ "  question::"+question+"  answer::"+answer;
+							"zipCode::"+zipCode+"  active::"+active+ "  question::"+question+"  answer::"+answer;*/
 							
 							
 							//form.UserName.focus();
-							//return false;
+							return false;
 						}
 					});
 				}
@@ -243,9 +275,10 @@
 				<td><input id="answer" name="Answer" type="text" class ="registartionFileds"/></td>
 			</tr>
 
-			<tr>
-				<td colspan="2" align="center"><input id="submit" name="Submit"
-					type="submit" value="SUBMIT" /></td>
+			<tr>				
+					<td colspan="2" align="center"><input type="button" class="submitButton"
+					id="submitButton" name="Submit" onclick=Submitfunction()
+					value="SUBMIT"/></td>
 			</tr>
 		</table>
 		</div>

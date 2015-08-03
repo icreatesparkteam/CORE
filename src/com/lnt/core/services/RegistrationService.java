@@ -196,6 +196,7 @@ public class RegistrationService {
 	@GET
 	@Produces({ MediaType.APPLICATION_JSON })
 	@Path("/serviceproviderlist")
+	@Consumes({ MediaType.APPLICATION_JSON })
 	// @PreAuthorize("hasAuthority('VIEW_PROFILE')")
 	public Response getUserList() {
 		logger.info("RegistrationService getUserListByRoleName method");
