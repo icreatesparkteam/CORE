@@ -40,7 +40,8 @@
 						contentType : "application/x-www-form-urlencoded",
 
 						success : function(data) {	
-							//goto main page						
+							//goto main page		
+							document.cookie = "lnt_access_token" + "=" + JSON.parse(JSON.stringify(data));
 							window.sessionStorage.setItem("token",JSON.parse(JSON.stringify(data)));					 
 							window.location = "/iControlE-Core/html/mainPage.html";
 						},
