@@ -37,6 +37,8 @@ public class ServiceProviderRegistrationDto {
 	private String sQuestion;
 
 	private String sAnswer;
+	
+	private int id;
 
 	public String getChangePassword() {
 		return changePassword;
@@ -190,6 +192,14 @@ public class ServiceProviderRegistrationDto {
 
 	public void setsAnswer(String sAnswer) {
 		this.sAnswer = sAnswer;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
 	}
 
 	
