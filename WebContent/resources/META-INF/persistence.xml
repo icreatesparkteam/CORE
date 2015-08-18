@@ -13,5 +13,6 @@
 		<class>com.lnt.core.model.Role</class>
 		<class>com.lnt.core.model.Permission</class>
 		<class>com.lnt.core.model.RolePermission</class>
+		<class>com.lnt.core.model.DeviceStatus</class>
 	</persistence-unit>
 </persistence>

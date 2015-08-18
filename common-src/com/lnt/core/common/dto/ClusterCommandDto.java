@@ -12,13 +12,19 @@ public class ClusterCommandDto {
 	
 	private String commandName;
 	
-	private String commandValue;	
+	private String commandValue;
+	
+	private int commandUpRange;
+	
+	private int commandLowRange;
 	
 
 	public ClusterCommand toCluster(ClusterCommand clusterCommand) throws ServiceApplicationException {
 		clusterCommand.setClusterID(this.clusterID);
 		clusterCommand.setCommandName(this.commandName);
 		clusterCommand.setCommandValue(commandValue);
+		clusterCommand.setCommandUpRange(commandUpRange);
+		clusterCommand.setCommandLowRange(commandLowRange);
 		return clusterCommand;
 	}
 
@@ -26,6 +32,8 @@ public class ClusterCommandDto {
 		this.clusterID = clusterCommand.getClusterID();
 		this.commandName = clusterCommand.getCommandName();
 		this.commandValue = clusterCommand.getCommandValue();
+		this.commandUpRange = clusterCommand.getCommandUpRange();
+		this.commandLowRange = clusterCommand.getCommandLowRange();
 		return this;
 	}
 
@@ -51,6 +59,22 @@ public class ClusterCommandDto {
 
 	public void setCommandValue(String commandValue) {
 		this.commandValue = commandValue;
+	}
+
+	public int getCommandUpRange() {
+		return commandUpRange;
+	}
+
+	public void setCommandUpRange(int commandUpRange) {
+		this.commandUpRange = commandUpRange;
+	}
+
+	public int getCommandLowRange() {
+		return commandLowRange;
+	}
+
+	public void setCommandLowRange(int commandLowRange) {
+		this.commandLowRange = commandLowRange;
 	}
 
 	

@@ -29,6 +29,12 @@ public class ClusterCommand  extends AbstractTimeStampEntity implements Serializ
 	@Column(name = "COMMAND_VALUE", length = 50)
 	private String commandValue;
 	
+	@Column(name = "COMMAND_UPPER_RANGE", length = 50)
+	private int commandUpRange;
+	
+	@Column(name = "COMMAND_LOWER_RANGE", length = 50)
+	private int commandLowRange;
+	
 	public ClusterCommand() {
 	}
 	
@@ -58,6 +64,22 @@ public class ClusterCommand  extends AbstractTimeStampEntity implements Serializ
 	
 	public int getID() {
 		return id;
+	}
+	
+	public int getCommandUpRange() {
+		return commandUpRange;
+	}
+
+	public void setCommandUpRange(int commandUpRange) {
+		this.commandUpRange = commandUpRange;
+	}
+	
+	public int getCommandLowRange() {
+		return commandLowRange;
+	}
+
+	public void setCommandLowRange(int commandLowRange) {
+		this.commandLowRange = commandLowRange;
 	}
 
 }

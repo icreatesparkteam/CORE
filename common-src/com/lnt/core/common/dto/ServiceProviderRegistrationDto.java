@@ -167,6 +167,7 @@ public class ServiceProviderRegistrationDto {
 		this.changePassword = serviceProvider.getChangePassword();
 		this.sQuestion = serviceProvider.getsQuestion();
 		this.sAnswer = serviceProvider.getsAnswer();
+		this.id = serviceProvider.getId();
 		return this;
 	}
 

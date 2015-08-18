@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.lnt.core.common.dto.ServiceProviderListDto;
 import com.lnt.core.common.dto.ServiceProviderRegistrationDto;
 import com.lnt.core.common.exception.ServiceApplicationException;
 
@@ -87,9 +88,9 @@ public class OEMManager implements IOEMManager {
 
 	@Override
 //	@Transactional
-	public List<ServiceProviderRegistrationDto> getAllServiceProviderlist() throws ServiceApplicationException {
+	public List<ServiceProviderListDto> getAllServiceProviderlist() throws ServiceApplicationException {
 		logger.info("UserManager  getAllServiceProviderlist!!!!!!!!!!!!!!");
-		List<ServiceProviderRegistrationDto> serviceProviderDtoList = new ArrayList<>();
+		List<ServiceProviderListDto> serviceProviderDtoList = new ArrayList<>();
 		List<ServiceProvider> serviceProviderRegistrationDtoList = serviceProviderDao.getServiceProviderList();
 		if (serviceProviderRegistrationDtoList == null) {
 			throw new ServiceApplicationException(
@@ -97,10 +98,9 @@ public class OEMManager implements IOEMManager {
 							);
 		}
 		for (ServiceProvider serviceProviderRegistrationDto : serviceProviderRegistrationDtoList) {
-			ServiceProviderRegistrationDto dto = new ServiceProviderRegistrationDto();
+			ServiceProviderListDto dto = new ServiceProviderListDto();
 			dto.setServiceProviderName(serviceProviderRegistrationDto.getServiceProviderName());
 			dto.setUserName(serviceProviderRegistrationDto.getUserName());
-			dto.setState(serviceProviderRegistrationDto.getState());
 //			Role role = roleMgr.getRole(serviceProviderRegistrationDto.getRole());
 //			dto.setRole(role.getId());
 			

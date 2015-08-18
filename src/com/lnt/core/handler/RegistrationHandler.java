@@ -11,6 +11,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.lnt.core.annotations.WriteTransaction;
+import com.lnt.core.common.dto.ServiceProviderListDto;
 import com.lnt.core.common.dto.ServiceProviderRegistrationDto;
 
 import com.lnt.core.common.exception.ServiceApplicationException;
@@ -228,7 +229,7 @@ public class RegistrationHandler implements IRegistrationHandler {
 
 	@Override
 	@Transactional
-	public List<ServiceProviderRegistrationDto> getServiceProviderList() throws ServiceApplicationException {
+	public List<ServiceProviderListDto> getServiceProviderList() throws ServiceApplicationException {
 		logger.info("UserHandler :  getUserList by role id method ");
 		return regMgr.getAllServiceProviderlist();
 	}

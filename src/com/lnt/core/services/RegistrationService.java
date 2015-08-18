@@ -18,6 +18,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Component;
 
+import com.lnt.core.common.dto.ServiceProviderListDto;
 import com.lnt.core.common.dto.ServiceProviderRegistrationDto;
 import com.lnt.core.common.exception.ServiceApplicationException;
 import com.lnt.core.common.exception.ServiceRuntimeException;
@@ -76,7 +77,7 @@ public class RegistrationService {
 
 	@GET
 	@Produces({ MediaType.APPLICATION_JSON })
-	@Path("/{username}")
+	@Path("/getspdetails/{username}")
 //	@PreAuthorize("hasAuthority('VIEW_PERSONAL_DATA')")
 	public Response getUser(@PathParam("username") String userName) {
 		logger.info("URegistrationService getUser method");
@@ -201,7 +202,7 @@ public class RegistrationService {
 	public Response getUserList() {
 		logger.info("RegistrationService getUserListByRoleName method");
 		try {
-			List<ServiceProviderRegistrationDto> serviceProviderList = regHandler.getServiceProviderList();
+			List<ServiceProviderListDto> serviceProviderList = regHandler.getServiceProviderList();
 			return Response.ok().entity(serviceProviderList).build();
 		} catch (ServiceRuntimeException e) {
 			logger.error("Runtime Exception while getUserListByRoleName : {}",

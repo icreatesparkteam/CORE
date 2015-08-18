@@ -2,6 +2,7 @@ package com.lnt.core.handler;
 
 import java.util.List;
 
+import com.lnt.core.common.dto.ServiceProviderListDto;
 import com.lnt.core.common.dto.ServiceProviderRegistrationDto;
 import com.lnt.core.common.exception.ServiceApplicationException;
 
@@ -31,7 +32,7 @@ public interface IRegistrationHandler {
 	public void setSecurityQuestions(String question, String answer)
 			throws ServiceApplicationException;
 
-	List<ServiceProviderRegistrationDto> getServiceProviderList()
+	List<ServiceProviderListDto> getServiceProviderList()
 			throws ServiceApplicationException;
 
 	
