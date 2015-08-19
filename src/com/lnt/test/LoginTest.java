@@ -31,6 +31,7 @@ public class LoginTest {
 		loginUser();
 
 		//createSP(token);
+		
 		getSP(token);
 
 		

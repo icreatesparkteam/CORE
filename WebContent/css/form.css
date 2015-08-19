@@ -70,9 +70,20 @@ select, option {
 }
 th{
 	background-color: green;	
-	height: 40px;
-	background-color: green;
+	height: 40px;	
 	color: white;
 	font-size: 20px;
 	
+}
+.listElement{
+width:320px;
+height:80px;
+background-color: green;
+color: white;
+font-size: 20px;
+border-radius:28px;				
+cursor:pointer;
+}
+.listElement:hover {
+background-color:#1AD048;
 }

@@ -8,6 +8,7 @@
 
 
 <title>Insert title here</title>
+
 </head>
 <body onload='getProvidersList()'>
 
@@ -23,7 +24,7 @@ function getProvidersList(){
 		contentType: 'application/json',
 		accepts: "application/json",
 		success : function(data) {								
-			buildHtmlTable(data);
+			showProviders(data);
 		},
 		error : function() {
 			alert('Error in getting service provider list');			
@@ -32,46 +33,49 @@ function getProvidersList(){
 	});
 }
 
+function showProviders(data){
+	var spList=data;
+	
+	spList.forEach(function(sp) {
+		  addtoList(sp);
+		});
 
-function buildHtmlTable(data) {
-	var myList=JSON.parse(JSON.stringify(data));	
-    var columns = addAllColumnHeaders(myList);
-
-    for (var i = 0 ; i < myList.length ; i++) {
-        var row$ = $('<tr/>');
-        for (var colIndex = 0 ; colIndex < columns.length ; colIndex++) {
-            var cellValue = myList[i][columns[colIndex]];
-
-            if (cellValue == null) { cellValue = ""; }
-
-            row$.append($('<td/>').html(cellValue));
-        }
-        $("#providerTable").append(row$);
-    }
-}
-
-function addAllColumnHeaders(myList)
-{
-    var columnSet = [];
-    var headerTr$ = $('<tr/>');
-
-    for (var i = 0 ; i < myList.length ; i++) {
-        var rowHash = myList[i];
-        for (var key in rowHash) {
-            if ($.inArray(key, columnSet) == -1){
-                columnSet.push(key);
-                headerTr$.append($('<th/>').html(key));
-            }
-        }
-    }
-    $("#providerTable").append(headerTr$);
-
-    return columnSet;
+		function addtoList(sp) {
+		  var element = document.createElement('button');		  
+		  element.setAttribute('id', sp.userName);	
+		  element.setAttribute('class','listElement');
+		  element.innerHTML = 'User Id : '+sp.userName + '<br />' +'Provider Name : '+ sp.serviceProviderName;
+		  element.onclick = function() { 
+		        alert(sp.userName);
+			  $.ajax({
+					type : "GET",
+					url : config.Server_IP + config.serviceproviderlist,					
+					headers: {
+			             'lnt_access_token': window.sessionStorage.getItem("token")
+			         },			         
+			         data: {
+			             'username': sp.userName
+			         },	
+					contentType: 'application/json',
+					accepts: "application/json",
+					success : function(data) {								
+						showProviderInfo(data);
+					},
+					error : function() {
+						alert('Error in getting service provider info');			
+						return false;
+					}
+				});
+		    };
+		  document.body.appendChild(element);
+		}
+		
+		
 }
 	
 </script>
 <form action="" id="providersForm">
-<table id="providerTable" border="1" >
+
 </table>
 </form>
 </body>

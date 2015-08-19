@@ -6,5 +6,6 @@ var config = {
 	"updateServiceProvider" : "/iControlE-Core/rest/registration/update",
 	"passwordRecovery" : "/iControlE-Core/rest/registration/passwordRecovery",
 	"changepassword" : "/iControlE-Core/rest/registration/changepassword",
-	"serviceproviderlist" : "/iControlE-Core/rest/registration/serviceproviderlist"
+	"serviceproviderlist" : "/iControlE-Core/rest/registration/serviceproviderlist",
+	"getspdetails":"/iControlE-Core/rest/registration/getspdetails"
 }
