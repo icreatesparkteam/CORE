@@ -45,17 +45,18 @@ function showProviders(data){
 		  element.setAttribute('id', sp.userName);	
 		  element.setAttribute('class','listElement');
 		  element.innerHTML = 'User Id : '+sp.userName + '<br />' +'Provider Name : '+ sp.serviceProviderName;
-		  element.onclick = function() { 
-		        alert(sp.userName);
+		  element.onclick = function() { 		        
 			  $.ajax({
 					type : "GET",
-					url : config.Server_IP + config.serviceproviderlist,					
+					url : config.Server_IP + config.getspdetails  + '/' + sp.userName,				
 					headers: {
 			             'lnt_access_token': window.sessionStorage.getItem("token")
-			         },			         
+			         },			
 			         data: {
-			             'username': sp.userName
-			         },	
+			        	 
+			        	 'username': sp.userName
+			        	    },
+			      
 					contentType: 'application/json',
 					accepts: "application/json",
 					success : function(data) {								
@@ -70,13 +71,16 @@ function showProviders(data){
 		  document.body.appendChild(element);
 		}
 		
+		function showProviderInfo(data){
+			var providerInfo=JSON.stringify(data);			
+			localStorage.setItem('providerInfo', providerInfo); 
+			window.location = "/iControlE-Core/html/editProvider.html";			
+		} 	
 		
 }
 	
 </script>
 <form action="" id="providersForm">
-
-</table>
 </form>
 </body>
 </html>
