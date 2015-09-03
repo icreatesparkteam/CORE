@@ -33,6 +33,8 @@ public class LoginTest {
 		//createSP(token);
 		
 		getSP(token);
+		
+		updateSP(token);
 
 		
 
@@ -135,6 +137,44 @@ public class LoginTest {
 		}
 	}
 	
+	private static void updateSP(String token)
+			throws JsonGenerationException, JsonMappingException, IOException {
+		ServiceProviderRegistrationDto reg = new ServiceProviderRegistrationDto();
+		reg.setUserName("servpro2");
+		reg.setAddress("Munnekolala 2,Banagalore");
+		reg.setPhoneNumber("91-7829157989");
+		reg.setPrimaryEmailId("atanu.niyogi1@gmail.com");
+		reg.setRole(ERole.SERVICE_PROVIDER.getId());
+		reg.setAltPhoneNumber("91-7829157444");
+		reg.setCity("Bangalore11");
+		reg.setState("KA11");
+		reg.setCountry("India11");
+		reg.setServiceProviderName("Comcast");
+		
+		
+		WebResource webResource = client.resource(UrlConstant + "registration/update");
+		ObjectMapper mapper = new ObjectMapper();
+		String inputData = mapper.writeValueAsString(reg);
+		System.out.println("URL: "+UrlConstant + "registration/update");
+		System.out.println("inputData : " + inputData);
+		try{			
+			ClientResponse response = webResource.type("application/json")
+					.header(IConstants.TOKEN_HEADER_KEY, token)
+					.post(ClientResponse.class, inputData);
+	
+//			if (response.getStatus() != 200) {
+//				throw new RuntimeException("Failed : HTTP error code : "
+//						+ response.getStatus());
+//			}
+	
+			System.out.println("Output from Server .... \n" + response.getStatus());
+			String output1 = response.getEntity(String.class);
+			System.out.println(output1);
+		}catch(Exception e){
+			System.out.println("Exception: "+e.toString());
+			e.printStackTrace();
+		}
+	}
 	
 
 }

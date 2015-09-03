@@ -77,12 +77,13 @@ th{
 }
 .listElement{
 width:320px;
-height:80px;
+height:60px;
 background-color: green;
 color: white;
 font-size: 20px;
-border-radius:28px;				
+border-radius:0px;				
 cursor:pointer;
+margin-left:20px;
 }
 .listElement:hover {
 background-color:#1AD048;
