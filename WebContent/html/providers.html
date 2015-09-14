@@ -2,7 +2,7 @@
 <html>
 <head>
 <link rel="stylesheet" type="text/css" media="screen"
-	href="../css/form.css" />
+	href="../css/forms.css" />
 <script type="text/javascript" src="../js/config.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 
@@ -41,7 +41,7 @@ function showProviders(data){
 		});
 
 		function addtoList(sp) {
-		  var element = document.createElement('button');		  
+		  var element = document.createElement('button');			  
 		  element.setAttribute('id', sp.userName);	
 		  element.setAttribute('class','listElement');
 		  element.innerHTML = 'User Id : '+sp.userName + '<br />' +'Provider Name : '+ sp.serviceProviderName;

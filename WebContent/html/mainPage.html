@@ -1,44 +1,106 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN" "http://www.w3.org/TR/html4/frameset.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Home</title>
-<link rel="stylesheet" type="text/css" media="screen"
-	href="/iControlE-Core/css/home.css" />
-<link rel="stylesheet" type="text/css" media="screen"
-	href="/iControlE-Core/css/form.css" />
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<title>iControl-E</title>
+<meta http-equiv='X-UA-Compatible' content='IE=9'>
+<link rel="icon" href="/iControlE-Core/images/iControlE.ico"
+	type="image/ico" sizes="16x16">
 
-<style>
-</style>
+<!--css-->
+<link href="/iControlE-Core/css/forms.css" rel="stylesheet"
+	type="text/css" />
+<link rel="stylesheet" href="/iControlE-Core/css/flexslider.css"
+	type="text/css" media="screen" />
+
+<!-- javascript -->
+<script type="text/javascript" src="/iControlE-Core/js/config.js"></script>
+<script type="text/javascript" src="/iControlE-Core/js/jquery.js"></script>
+<script src="/iControlE-Core/js/modernizr.js"></script>
+<script defer src="/iControlE-Core/js/jquery.flexslider.js"></script>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+<script type="text/javascript">
+            $(window).load(function() {
+                $('.flexslider').flexslider({
+                    animation: "slide",
+                    start: function(slider) {
+                        $('body').removeClass('loading');
+                    }
+                });
+             /*  sessionStorage.clear();
+                var screenHeight = $('.mainContainer').css('height');
+                screenHeight = screenHeight.split('px');
+                $('.footerContainer').css('top', (screenHeight[0]-30) + 'px');*/
+            });
+            </script>
+
 </head>
 <body>
-<script type="text/javascript">
-
+	<script type="text/javascript">
+function logout(){            	
+	var token = window.sessionStorage.getItem("token");	
+	$.ajax({
+	type : "GET",
+	url : config.Server_IP + config.logoutURL,				
+		headers: {
+             'lnt_access_token': document.cookie
+         },	
+        contentType : 'application/json',		
+		success : function(data) {			
+			window.location = '/iControlE-Core/html/Login.html';																	
+		},
+		error : function() {								
+			alert("Please try again");
+		}
+	});
+	
+}
 </script>
-	<div id="parent">
-		<table border="0" cellpadding="5" cellspacing="0" width="600"
-			id="homeContainer">
-			<tr>
-				<td colspan="2"><img id="banner"></img></td>
-			</tr>
-			<tr>
-				<td colspan="2">
-					<ul id="menu">
-						<li><a href="home.html" title="Home: " target="iframe">Home</a></li>
-						<li><a href="serviceProviderRegistration.html"
-							title="Register Service Provider" target="iframe">Register
-								Service Provider</a></li>
-						<li><a href="providers.html" title="Show Providers " target="iframe">Show Providers</a></li>
-						<li><a href="search.html" title="Search" target="iframe">Search</a></li>
+	<div align="center" style="width: 100%;">
+		<div class="mainContainer" align="center">
+			<div class='headerContainer'>
+				<div id='logoutHomeScreen' onclick=logout()></div>
+			</div>
+			<div id="bodyContainer" class="w100">
+				<div id='leftPanel'>
+					<div class="slider">
+						<div class="flexslider">
+							<ul class="slides">
+								<li><img src="../images/slider_images/image1.jpg" alt='' /></li>
+								<li><img src="../images/slider_images/image2.jpg" alt='' /></li>
+								<li><img src="../images/slider_images/image3.jpg" alt='' /></li>
+								<li><img src="../images/slider_images/image4.jpg" alt='' /></li>
+							</ul>
+						</div>
+					</div>
+					<div id='aboutContentWrapper'>
+						<p id="aboutHeader" class='indexHeader'>
+						<ul id="menu">
+							<li><a href="home.html" title="Home: " target="iframe">Home</a></li>
+							<li><a href="serviceProviderRegistration.html"
+								title="Register Service Provider" target="iframe">Register
+									Service Provider</a></li>
+							<li><a href="providers.html" title="Show Providers "
+								target="iframe">Show Providers</a></li>
+							<li><a href="search.html" title="Search" target="iframe">Search</a></li>
+						</ul>
+						</p>
+						<div>
+							<div class='fr' id='aboutContentInfo'>
+								<!--add header here-->
+							</div>
+						</div>
+						<iframe src="" id="iframe" name="iframe" class="iframe" frameBorder="0"></iframe>
 
-					</ul>
-				</td>
-			</tr>
-			<tr>
-				<td colspan="2"><iframe src="" name="iframe" id="iframe"></iframe></td>
-			</tr>
-		</table>
+					</div>
+				</div>
+
+			</div>
+		<!-- 	<div class='footerContainer w100 cb'></div>
+			<div class="fr" style="margin-right: 15px;">2015 L&T Technology
+				Services. All rights reserved</div> -->
+		</div>
 	</div>
 </body>
 </html>

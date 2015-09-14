@@ -2,18 +2,18 @@
 <html>
 <head>
 
+ <title>iControl-E</title>
+    <meta http-equiv='X-UA-Compatible' content='IE=9'>
+    <link rel="icon" href="images/iControlE.ico" type="image/ico" sizes="16x16">
+
+
 <link rel="stylesheet" type="text/css" media="screen"
-	href="css/form.css" />
+	href="css/forms.css" />
 <script type="text/javascript" src="js/config.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-<title></title>
 </head>
 <body>
-	<!-- 	<form action="" id="loginForm" method="post"
-		onsubmit="return ValidateForm(this);">-->
-
-	<form action="" id="loginForm" method="post">
-
+	
 		<script type="text/javascript">
 			function loginfunction() {
 				var form = document.getElementById("loginForm");
@@ -54,28 +54,32 @@
 				}
 			}
 		</script>
-		<table border="0" cellpadding="5" cellspacing="0" width="600"
-			class="login">
-			<tr>
-				<td><b>User Name:</b></td>
-				<td><input id="UserName" name="UserName" type="text"
-					class="loginFileds" /></td>
-			</tr>
-			<tr>
-				<td><b>Password:</b></td>
-				<td><input id="Password" name="Password" type="password"
-					class="loginFileds" /></td>
-			</tr>
+			
+		<div class='w100 loadingContainer'>
+    <div id='loginEntryWrapper'>
+        <form action="" id="loginForm" method="post">
+            <div id='formHeader'></div>
+            <table>
+                <tr>
+                    <td><input id="UserName" name="UserName" type="text" maxlength='20'
+                               class="loginFileds" placeholder='Enter User Name'/></td>
+                </tr>
+                <tr>
 
-			<tr>
+                    <td><input id="Password" name="Password" type="password"
+                               placeholder="Enter Password" class="loginFileds"/></td>
+                </tr>
+                <tr>
+                    <td class="loginButtonContainer"><input type="button" class='submitBtn'
+                                                            id="loginButton" name="Submit" onclick=loginfunction()
+                                                            value="Login"/></td>
+                </tr>
+            </table>
 
-				<td colspan="2" align="center"><input type="button"
-					id="loginButton" name="Submit" onclick=loginfunction()
-					value="LOG IN" /></td>
-			</tr>
-		</table>
-		<br />
-	</form>
-
+        </form>
+    </div>
+</div>
+		
+		
 </body>
 </html>
