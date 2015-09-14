@@ -8,6 +8,8 @@ import com.lnt.core.model.Gateway;
 @XmlRootElement
 public class GatewayDto {
 
+	private int id;
+	
 	private String gatewayID;
 
 	private int serviceProviderID;
@@ -58,6 +60,7 @@ public class GatewayDto {
 		this.ipAddress = gateway.getIPAddress();
 		this.gatewayID = gateway.getGatewayID();
 		this.status = gateway.getActive();
+		this.id = gateway.getId();
 		return this;
 	}
 
@@ -75,6 +78,14 @@ public class GatewayDto {
 
 	public void setIpAddress(String ipAddress) {
 		this.ipAddress = ipAddress;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
 	}
 
 }

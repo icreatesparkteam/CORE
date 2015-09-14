@@ -14,5 +14,6 @@
 		<class>com.lnt.core.model.Permission</class>
 		<class>com.lnt.core.model.RolePermission</class>
 		<class>com.lnt.core.model.DeviceStatus</class>
+		<class>com.lnt.core.model.DeviceCommandQueue</class>
 	</persistence-unit>
 </persistence>
