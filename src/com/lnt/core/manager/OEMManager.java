@@ -104,6 +104,13 @@ public class OEMManager implements IOEMManager {
 //			Role role = roleMgr.getRole(serviceProviderRegistrationDto.getRole());
 //			dto.setRole(role.getId());
 			
+			dto.setState(serviceProviderRegistrationDto.getState());
+			dto.setAddress(serviceProviderRegistrationDto.getAddress());
+			dto.setCity(serviceProviderRegistrationDto.getCity());
+			dto.setCountry(serviceProviderRegistrationDto.getCountry());
+			dto.setPrimaryEmailId(serviceProviderRegistrationDto.getPrimaryEmailId());
+			dto.setState(serviceProviderRegistrationDto.getState());
+			
 			serviceProviderDtoList.add(dto);
 
 		}

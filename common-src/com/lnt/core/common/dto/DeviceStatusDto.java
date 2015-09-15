@@ -10,19 +10,28 @@ public class DeviceStatusDto {
 
 	private int id;
 
-	private int deviceID;
+	private String deviceID;
 
-	private int gatewayID;
+	private String gatewayID;
 	
 	private String deviceStatus;
 	
-	private int intensity;
+	private String hue;
+	
+	private String saturation;
+	
+	private String endPoint;
+	
+	private String level;
 	
 	public DeviceStatus toDeviceStatus(DeviceStatus device) throws ServiceApplicationException {
 		device.setDeviceID(this.deviceID);
 		device.setGatewayID(this.gatewayID);
 		device.setDeviceStatus(this.deviceStatus);
-		device.setIntensity(this.intensity);
+		device.setHue(this.hue);
+		device.setLevel(this.level);
+		device.setEndpoint(this.endPoint);
+		device.setSaturation(this.saturation);
 		return device;
 	}
 
@@ -31,7 +40,10 @@ public class DeviceStatusDto {
 		this.deviceID = device.getDeviceID();
 		this.deviceStatus = device.getDeviceStatus();
 		this.gatewayID = device.getGatewayID();
-		this.intensity = device.getIntensity();
+		this.hue = device.getHue();
+		this.level = device.getLevl();
+		this.endPoint = device.getEndpoint();
+		this.saturation = device.getSaturation();
 		return this;
 	}
 
@@ -43,19 +55,19 @@ public class DeviceStatusDto {
 		this.id = id;
 	}
 
-	public int getDeviceID() {
+	public String getDeviceID() {
 		return deviceID;
 	}
 
-	public void setDeviceID(int deviceID) {
+	public void setDeviceID(String deviceID) {
 		this.deviceID = deviceID;
 	}
 
-	public int getGatewayID() {
+	public String getGatewayID() {
 		return gatewayID;
 	}
 
-	public void setGatewayID(int gatewayID) {
+	public void setGatewayID(String gatewayID) {
 		this.gatewayID = gatewayID;
 	}
 
@@ -67,12 +79,36 @@ public class DeviceStatusDto {
 		this.deviceStatus = deviceStatus;
 	}
 
-	public int getIntensity() {
-		return intensity;
+	public String getHue() {
+		return hue;
 	}
 
-	public void setIntensity(int intensity) {
-		this.intensity = intensity;
+	public void setHue(String hue) {
+		this.hue = hue;
+	}
+
+	public String getSaturation() {
+		return saturation;
+	}
+
+	public void setSaturation(String saturation) {
+		this.saturation = saturation;
+	}
+
+	public String getEndPoint() {
+		return endPoint;
+	}
+
+	public void setEndPoint(String endPoint) {
+		this.endPoint = endPoint;
+	}
+
+	public String getLevel() {
+		return level;
+	}
+
+	public void setLevel(String level) {
+		this.level = level;
 	}
 
 	
