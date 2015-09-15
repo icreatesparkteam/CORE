@@ -321,3 +321,18 @@ background-color:#1682ba ;
 	font-size: 20px;
 	text-align: left;	
 }
+#listView{
+    width: 750px;
+    background-color: white;
+    margin: 10px !important;    
+    verticle-align: centre;
+    border: 2px solid #08558b;
+	margin-top: 30px !important;
+    margin-left: 230px !important;
+   
+}
+th{
+padding:8px;
+background-color:#08558b;
+color:white;
+}

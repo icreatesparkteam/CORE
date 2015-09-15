@@ -2,17 +2,18 @@
 <html>
 <head>
 
-	<link rel="stylesheet" type="text/css" media="screen"
-		  href="../css/forms.css" />
-	<script type="text/javascript" src="../js/config.js"></script>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<link rel="stylesheet" type="text/css" media="screen"
+	href="../css/forms.css" />
+<script type="text/javascript" src="../js/config.js"></script>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 
-	<title></title>
+<title>iControl-E</title>
 </head>
 <body>
 
-<form action="" id="registrationForm">
-	<script type="text/javascript">
+	<form action="" id="registrationForm">
+		<script type="text/javascript">
 		function Submitfunction() {
 			var frm = document.getElementById("registrationForm");
 
@@ -151,107 +152,93 @@
 			}
 		}
 	</script>
-	<!--<div id="parent" style="border:2px solid blue">-->
-		<!--<table border="0" cellpadding="5" cellspacing="0" width="700"-->
-			   <!--id="container" style="border:2px solid green;position: relative;vertical-align: middle" align="center" >-->
 
-	<table id="container"  >
-
+		<table id="container">
 			<tr>
 				<td>User Name:</td>
-				<td><input id="userName" name="UserName" type="text"
-						   class="registartionFileds" /></td>
+				<td><input id="userName" name="UserName" type="text" /></td>
 			</tr>
 			<tr>
 				<td>Password:</td>
-				<td><input id="password" name="Password" type="password"
-						   class="registartionFileds" /></td>
+				<td><input id="password" name="Password" type="password" /></td>
 			</tr>
 
 			<tr>
 				<td>Service Provider Name:</td>
 				<td><input id="serviceProviderName" name="serviceProviderName"
-						   type="text" class="registartionFileds" /></td>
+					type="text" /></td>
 			</tr>
 			<tr>
 				<td>Email address:</td>
-				<td><input id="emailAddress" name="EmailAddress" type="text"
-						   class="registartionFileds" /></td>
+				<td><input id="emailAddress" name="EmailAddress" type="text" /></td>
 			</tr>
 			<tr>
 				<td>Phone:</td>
-				<td><input id="phone" name="Phone" type="text"
-						   class="registartionFileds" /></td>
+				<td><input id="phone" name="Phone" type="text" /></td>
 			</tr>
 			<tr>
 				<td>Alternate Phone:</td>
-				<td><input id="altPhone" name="AltPhone" type="text"
-						   class="registartionFileds" /></td>
+				<td><input id="altPhone" name="AltPhone" type="text" /></td>
 			</tr>
 
 			<tr>
 				<td>Address:</td>
-				<td><input id="address" name="Address" type="text"
-						   class="registartionFileds" /></td>
+				<td><input id="address" name="Address" type="text" /></td>
 			</tr>
 			<tr>
 				<td>City:</td>
-				<td><input id="city" name="City" type="text" maxlength="120"
-						   class="registartionFileds" /></td>
+				<td><input id="city" name="City" type="text" maxlength="120" /></td>
 			</tr>
 			<tr>
 				<td>State/Province:</td>
-				<td><input id="state" name="State" type="text" maxlength="120"
-						   class="registartionFileds" /></td>
+				<td><input id="state" name="State" type="text" maxlength="120" /></td>
 			</tr>
 			<tr>
 				<td>Country:</td>
-				<td><input id="country" name="Country" type="text"
-						   class="registartionFileds" /></td>
+				<td><input id="country" name="Country" type="text" /></td>
 			</tr>
 			<tr>
 				<td>Zip/Postal Code:</td>
 				<td><input id="zipCode" name="ZipCode" type="text"
-						   maxlength="30" class="registartionFileds" /></td>
+					maxlength="30" /></td>
 			</tr>
 			<tr>
 				<td>Active:</td>
 				<td><select name="Active" id="active">
-					<option value="" selected>Select Active Status</option>
-					<option value="1">Yes</option>
-					<option value="2">No</option>
+						<option value="" selected>Select Active Status</option>
+						<option value="1">Yes</option>
+						<option value="2">No</option>
 				</select></td>
 			</tr>
 			<tr>
 				<td>Security Question:</td>
 				<td><select name="Question" id="question">
-					<option value="" selected>Select Security Question</option>
-					<option value="1">What was your childhood nickname?</option>
-					<option value="2">What is the name of your favorite
-						childhood friend?</option>
-					<option value="3">What was the make and model of your
-						first car?</option>
-					<option value="4">Who is your childhood sports hero?</option>
-					<option value="5">What is your pet’s name?</option>
-					<option value="6">In what year was your father born?</option>
-					<option value="7">What is your favorite fruit?</option>
+						<option value="" selected>Select Security Question</option>
+						<option value="1">What was your childhood nickname?</option>
+						<option value="2">What is the name of your favorite
+							childhood friend?</option>
+						<option value="3">What was the make and model of your
+							first car?</option>
+						<option value="4">Who is your childhood sports hero?</option>
+						<option value="5">What is your pet’s name?</option>
+						<option value="6">In what year was your father born?</option>
+						<option value="7">What is your favorite fruit?</option>
 				</select></td>
 			</tr>
 			<tr>
 				<td>Answer:</td>
-				<td><input id="answer" name="Answer" type="text"
-						   class="registartionFileds" /></td>
+				<td><input id="answer" name="Answer" type="text" /></td>
 			</tr>
 
 			<tr>
 				<td colspan="2" align="center"><input type="button"
-													  class="submitBtn" id="submitButton" name="Submit"
-													  onclick=Submitfunction() value="SUBMIT" /></td>
+					class="submitBtn" id="submitButton" name="Submit"
+					onclick=Submitfunction() value="SUBMIT" /></td>
 			</tr>
 		</table>
-	<!--</div>-->
-	<br />
-</form>
+		<!--</div>-->
+		<br />
+	</form>
 
 </body>
 </html>

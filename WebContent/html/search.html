@@ -1,8 +1,63 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN" "http://www.w3.org/TR/html4/frameset.dtd">
+<!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
-</head>
+<meta charset="ISO-8859-1">
 
+<link rel="stylesheet" type="text/css" media="screen"
+	href="../css/forms.css" />
+<script type="text/javascript" src="../js/config.js"></script>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+<title>iControl-E</title>
+</head>
+<body>
+
+<script type="text/javascript">
+function searchProvider(){
+	var userName = document.getElementById("userName").value;
+	
+	 $.ajax({
+			type : "GET",
+			url : config.Server_IP + config.getspdetails  + '/' + userName,				
+			headers: {
+	             'lnt_access_token': window.sessionStorage.getItem("token")
+	         },			
+	         data: {	        	 
+	        	 'username': userName
+	        	    },
+	      
+			contentType: 'application/json',
+			accepts: "application/json",
+			success : function(data) {								
+				showProviderInfo(data);
+			},
+			error : function() {
+				alert('Error in getting service provider info');			
+				return false;
+			}
+		});
+	 
+	 function showProviderInfo(data){
+			var providerInfo=JSON.stringify(data);			
+			localStorage.setItem('providerInfo', providerInfo); 
+			window.location = "/iControlE-Core/html/editProvider.html";			
+		}
+	
+}
+</script>
+
+
+	<table id="container">
+		<tr>
+			<td>Please Enter Service Provider Name</td>
+			<td><input id="userName" name="UserName" type="text" /></td>
+		</tr>
+		<tr>
+			<td colspan="2" align="center"><input type="button"
+				class="submitBtn" id="submitButton" name="Submit"
+				onclick=searchProvider() value="Search Service Provider" /></td>
+		</tr>
+	</table>
+</body>
 </html>
