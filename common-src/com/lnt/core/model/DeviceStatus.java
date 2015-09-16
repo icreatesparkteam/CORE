@@ -21,54 +21,87 @@ public class DeviceStatus  extends AbstractTimeStampEntity implements Serializab
 	private int id;
 
 	@Column(name = "DEVICE_ID", length = 10)
-	private int deviceID;
+	private String deviceID;
 
 	@Column(name = "GATEWAY_ID", length = 10)
-	private int gatewayID;
+	private String gatewayID;
 	
 	@Column(name = "DEVICE_STATUS", length = 50)
-	private String deviceStatus;
+	private String status;
 	
-	@Column(name = "DEVICE_INTENSITY_VALUE", length = 10)
-	private int intensity;
+	@Column(name = "DEVICE_HUE", length = 10)
+	private String hue;
+	
+	@Column(name = "DEVICE_SATURATION", length = 10)
+	private String saturation;
+	
+	@Column(name = "DEVICE_ENDPOINT", length = 10)
+	private String endPoint;
+	
+	@Column(name = "DEVICE_LEVEL", length = 10)
+	private String level;
 	
 	public DeviceStatus() {
 	}
 	
-	public int getDeviceID() {
+	public String getDeviceID() {
 		return deviceID;
 	}
 
-	public void setDeviceID(int deviceID) {
+	public void setDeviceID(String deviceID) {
 		this.deviceID = deviceID;
 	}
 
-	public int getGatewayID() {
+	public String getGatewayID() {
 		return gatewayID;
 	}
 
-	public void setGatewayID(int gatewayID) {
+	public void setGatewayID(String gatewayID) {
 		this.gatewayID = gatewayID;
 	}
 	
 	public String getDeviceStatus() {
-		return deviceStatus;
+		return status;
 	}
 
 	public void setDeviceStatus(String deviceStatus) {
-		this.deviceStatus = deviceStatus;
+		this.status = deviceStatus;
 	}
 	
 	public int getID() {
 		return id;
 	}
 	
-	public int getIntensity() {
-		return intensity;
+	public String getHue() {
+		return hue;
 	}
 
-	public void setIntensity(int intensity) {
-		this.intensity = intensity;
+	public void setHue(String hue) {
+		this.hue = hue;
+	}
+	
+	public String getSaturation() {
+		return saturation;
+	}
+
+	public void setSaturation(String saturation) {
+		this.saturation = saturation;
+	}
+	
+	public String getLevl() {
+		return level;
+	}
+
+	public void setLevel(String level) {
+		this.level = level;
+	}
+	
+	public String getEndpoint() {
+		return endPoint;
+	}
+
+	public void setEndpoint(String endPoint) {
+		this.endPoint = endPoint;
 	}
 
 
