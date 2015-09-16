@@ -69,7 +69,7 @@ function addAllColumnHeaders(myList)
     for (var i = 0 ; i < myList.length ; i++) {
         var rowHash = myList[i];
         for (var key in rowHash) {
-        	if(key=="password"|| key=="address"|| key=="zipCode"||key=="sQuestion"|| key=="sAnswer"){
+        	if(key=="password"|| key=="address"|| key=="zipCode"||key=="sQuestion"|| key=="sAnswer"||key==="altPhoneNumber"){
     			continue;
     		}
             if ($.inArray(key, columnSet) == -1){
@@ -86,7 +86,7 @@ function addAllColumnHeaders(myList)
 </script>
 <form action="" id="providersForm">
 
-<div id="listView">
+<div id="listView" width="950px">
 <table id="providerTable"  cellpadding="5px" cellspacing="8px" style="text-align: center;" >
 </table>
 </div>
