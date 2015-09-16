@@ -315,7 +315,7 @@ background-color:#1682ba ;
 	width: 100%;
 	margin: 0px;
 	margin-top:40px;
-	margin-left:100px;
+	margin-left:150px;
 	padding-top: 15px !important;	
 	color: black;
 	font-size: 20px;
@@ -335,4 +335,16 @@ th{
 padding:8px;
 background-color:#08558b;
 color:white;
+}
+
+#providerListView{
+    width: 900px;
+    background-color: white;
+    margin: 10px !important;    
+    verticle-align: centre;
+    border: 2px solid #08558b;
+	margin-top: 30px !important;
+    margin-left: 150px !important;
+	
+   
 }

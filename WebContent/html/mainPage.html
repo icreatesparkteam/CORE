@@ -38,24 +38,27 @@
 </head>
 <body>
 	<script type="text/javascript">
-function logout(){            	
-	var token = window.sessionStorage.getItem("token");	
-	$.ajax({
-	type : "GET",
-	url : config.Server_IP + config.logoutURL,				
-		headers: {
-             'lnt_access_token': document.cookie
-         },	
-        contentType : 'application/json',		
-		success : function(data) {			
-			window.location = '/iControlE-Core/html/Login.html';																	
-		},
-		error : function() {								
-			alert("Please try again");
-		}
-	});
 	
-}
+	
+	function logout(){	
+		var token = window.sessionStorage.getItem("token");	
+		$.ajax({
+			type : "GET",
+			url : config.Server_IP + config.logoutURL,
+			headers: {
+	             'lnt_access_token': window.sessionStorage.getItem("token")
+	         },	
+			
+	        contentType : 'application/json',	
+			success : function(data) {				
+				window.location = '/iControlE-Core/html/Login.html';	
+			},
+			error : function() {
+				alert("Please try again");			
+				
+			}
+		});
+	}
 </script>
 	<div align="center" style="width: 100%;">
 		<div class="mainContainer" align="center">
@@ -67,10 +70,14 @@ function logout(){
 					<div class="slider">
 						<div class="flexslider">
 							<ul class="slides">
-								<li><img src="/iControlE-Core/images/slider_images/image1.jpg" alt='' /></li>
-								<li><img src="/iControlE-Core/images/slider_images/image2.jpg" alt='' /></li>
-								<li><img src="/iControlE-Core/images/slider_images/image3.jpg" alt='' /></li>
-								<li><img src="/iControlE-Core/images/slider_images/image4.jpg" alt='' /></li>
+								<li><img
+									src="/iControlE-Core/images/slider_images/image1.jpg" alt='' /></li>
+								<li><img
+									src="/iControlE-Core/images/slider_images/image2.jpg" alt='' /></li>
+								<li><img
+									src="/iControlE-Core/images/slider_images/image3.jpg" alt='' /></li>
+								<li><img
+									src="/iControlE-Core/images/slider_images/image4.jpg" alt='' /></li>
 							</ul>
 						</div>
 					</div>
@@ -83,7 +90,8 @@ function logout(){
 									Service Provider</a></li>
 							<!-- <li><a href="providers.html" title="Show Providers "
 								target="iframe">Show Providers</a></li> -->
-							<li><a href="search.html" title="Search Service Provider" target="iframe">Search Service Provider</a></li>
+							<li><a href="search.html" title="Search Service Provider"
+								target="iframe">Search Service Provider</a></li>
 						</ul>
 						</p>
 						<div>
@@ -91,13 +99,14 @@ function logout(){
 								<!--add header here-->
 							</div>
 						</div>
-						<iframe src="" id="iframe" name="iframe" class="iframe" frameBorder="0"></iframe>
+						<iframe src="" id="iframe" name="iframe" class="iframe"
+							frameBorder="0"></iframe>
 
 					</div>
 				</div>
 
 			</div>
-		<!-- 	<div class='footerContainer w100 cb'></div>
+			<!-- 	<div class='footerContainer w100 cb'></div>
 			<div class="fr" style="margin-right: 15px;">2015 L&T Technology
 				Services. All rights reserved</div> -->
 		</div>
