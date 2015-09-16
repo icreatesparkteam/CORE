@@ -8,7 +8,6 @@
 
 
 <title>Insert title here</title>
-
 </head>
 <body onload='getProvidersList()'>
 
@@ -24,7 +23,8 @@ function getProvidersList(){
 		contentType: 'application/json',
 		accepts: "application/json",
 		success : function(data) {								
-			showProviders(data);
+			buildHtmlTable(data);
+			showInfo(data);
 		},
 		error : function() {
 			alert('Error in getting service provider list');			
@@ -32,55 +32,66 @@ function getProvidersList(){
 		}
 	});
 }
-
-function showProviders(data){
+function showInfo(data){
 	var spList=data;
+	var count=0;
 	
 	spList.forEach(function(sp) {
-		  addtoList(sp);
-		});
+		  count++;
+		});	
+	document.getElementById('contentInfo').innerText="Total Number of Service Providers:      "+count;
+	
+}
 
-		function addtoList(sp) {
-		  var element = document.createElement('button');			  
-		  element.setAttribute('id', sp.userName);	
-		  element.setAttribute('class','listElement');
-		  element.innerHTML = 'User Id : '+sp.userName + '<br />' +'Provider Name : '+ sp.serviceProviderName;
-		  element.onclick = function() { 		        
-			  $.ajax({
-					type : "GET",
-					url : config.Server_IP + config.getspdetails  + '/' + sp.userName,				
-					headers: {
-			             'lnt_access_token': window.sessionStorage.getItem("token")
-			         },			
-			         data: {
-			        	 
-			        	 'username': sp.userName
-			        	    },
-			      
-					contentType: 'application/json',
-					accepts: "application/json",
-					success : function(data) {								
-						showProviderInfo(data);
-					},
-					error : function() {
-						alert('Error in getting service provider info');			
-						return false;
-					}
-				});
-		    };
-		  document.body.appendChild(element);
-		}
-		
-		function showProviderInfo(data){
-			var providerInfo=JSON.stringify(data);			
-			localStorage.setItem('providerInfo', providerInfo); 
-			window.location = "/iControlE-Core/html/editProvider.html";			
-		} 	
-		
+
+function buildHtmlTable(data) {
+	var myList=JSON.parse(JSON.stringify(data));	
+    var columns = addAllColumnHeaders(myList);
+
+    for (var i = 0 ; i < myList.length ; i++) {
+        var row$ = $('<tr/>');
+        for (var colIndex = 0 ; colIndex < columns.length ; colIndex++) {
+            var cellValue = myList[i][columns[colIndex]];
+
+            if (cellValue == null) { cellValue = ""; }
+
+            row$.append($('<td/>').html(cellValue));
+        }
+        $("#providerTable").append(row$);
+    }
+}
+
+function addAllColumnHeaders(myList)
+{
+    var columnSet = [];
+    var headerTr$ = $('<tr/>');
+
+    for (var i = 0 ; i < myList.length ; i++) {
+        var rowHash = myList[i];
+        for (var key in rowHash) {
+        	if(key=="password"|| key=="address"|| key=="zipCode"||key=="sQuestion"|| key=="sAnswer"){
+    			continue;
+    		}
+            if ($.inArray(key, columnSet) == -1){
+                columnSet.push(key);
+                headerTr$.append($('<th/>').html(key));
+            }
+        }
+    }
+    $("#providerTable").append(headerTr$);
+
+    return columnSet;
 }
 	
 </script>
 <form action="" id="providersForm">
+
+<div id="listView">
+<table id="providerTable"  cellpadding="5px" cellspacing="8px" style="text-align: center;" >
+</table>
+</div>
+<div class='header' id='contentInfo'></div>
+
 </form>
 </body>
 </html>

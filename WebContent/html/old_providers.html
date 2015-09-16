@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" type="text/css" media="screen"
+	href="../css/forms.css" />
+<script type="text/javascript" src="../js/config.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+
+<title>Insert title here</title>
+
+</head>
+<body onload='getProvidersList()'>
+
+<script type="text/javascript">
+function getProvidersList(){	
+	var token = window.sessionStorage.getItem("token");	
+	$.ajax({
+		type : "GET",
+		url : config.Server_IP + config.serviceproviderlist,
+		headers: {
+             'lnt_access_token': window.sessionStorage.getItem("token")
+         },	
+		contentType: 'application/json',
+		accepts: "application/json",
+		success : function(data) {								
+			showProviders(data);
+		},
+		error : function() {
+			alert('Error in getting service provider list');			
+			return false;
+		}
+	});
+}
+
+function showProviders(data){
+	var spList=data;
+	
+	spList.forEach(function(sp) {
+		  addtoList(sp);
+		});
+
+		function addtoList(sp) {
+		  var element = document.createElement('button');			  
+		  element.setAttribute('id', sp.userName);	
+		  element.setAttribute('class','listElement');
+		  element.innerHTML = 'User Id : '+sp.userName + '<br />' +'Provider Name : '+ sp.serviceProviderName;
+		  element.onclick = function() { 		        
+			  $.ajax({
+					type : "GET",
+					url : config.Server_IP + config.getspdetails  + '/' + sp.userName,				
+					headers: {
+			             'lnt_access_token': window.sessionStorage.getItem("token")
+			         },			
+			         data: {
+			        	 
+			        	 'username': sp.userName
+			        	    },
+			      
+					contentType: 'application/json',
+					accepts: "application/json",
+					success : function(data) {								
+						showProviderInfo(data);
+					},
+					error : function() {
+						alert('Error in getting service provider info');			
+						return false;
+					}
+				});
+		    };
+		  document.body.appendChild(element);
+		}
+		
+		function showProviderInfo(data){
+			var providerInfo=JSON.stringify(data);			
+			localStorage.setItem('providerInfo', providerInfo); 
+			window.location = "/iControlE-Core/html/editProvider.html";			
+		} 	
+		
+}
+	
+</script>
+<form action="" id="providersForm">
+</form>
+</body>
+</html>
