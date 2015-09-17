@@ -33,6 +33,13 @@
                 screenHeight = screenHeight.split('px');
                 $('.footerContainer').css('top', (screenHeight[0]-30) + 'px');*/
             });
+            
+            history.pushState(null, null, '/iControlE-ServiceProvider/html/mainPage.html');
+            window.addEventListener('popstate', function(event) {
+            history.pushState(null, null, '/iControlE-ServiceProvider/html/mainPage.html');
+            });
+
+
             </script>
 
 </head>
