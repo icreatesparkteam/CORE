@@ -39,26 +39,33 @@
 <body>
 	<script type="text/javascript">
 	
-	
-	function logout(){	
-		var token = window.sessionStorage.getItem("token");	
-		$.ajax({
-			type : "GET",
-			url : config.Server_IP + config.logoutURL,
-			headers: {
-	             'lnt_access_token': window.sessionStorage.getItem("token")
-	         },	
-			
-	        contentType : 'application/json',	
-			success : function(data) {				
-				window.location = '/iControlE-Core/html/Login.html';	
-			},
-			error : function() {
-				alert("Please try again");			
-				
-			}
-		});
-	}
+	function logout() {
+        var token = window.sessionStorage.getItem("token");
+        $.ajax({
+            type: "GET",
+            url: config.Server_IP + config.logoutURL,
+            headers: {
+                'lnt_access_token': token
+            },
+            contentType: 'application/json; charset=utf-8',
+
+            statusCode: {
+                200: function () {
+                    window.location = '/iControlE-Core/html/Login.html';
+                    return true;
+                }
+            },
+
+            success: function (data) {
+                window.location = '/iControlE-Core/html/Login.html';
+            },
+            error: function () {
+                //alert("Please try again");
+            }
+        });
+
+    }
+
 </script>
 	<div align="center" style="width: 100%;">
 		<div class="mainContainer" align="center">
