@@ -4,45 +4,47 @@
 <link rel="stylesheet" type="text/css" media="screen"
 	href="../css/forms.css" />
 <script type="text/javascript" src="../js/config.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 
 <title>iControl-E</title>
 
 </head>
 <body onload='getProvidersList()'>
 
-<script type="text/javascript">
-function getProvidersList(){	
-	var token = window.sessionStorage.getItem("token");	
-	$.ajax({
-		type : "GET",
-		url : config.Server_IP + config.serviceproviderlist,
-		headers: {
-             'lnt_access_token': window.sessionStorage.getItem("token")
-         },	
-		contentType: 'application/json',
-		accepts: "application/json",
-		success : function(data) {								
-			showInfo(data);
-		},
-		error : function() {
-			alert('Error in getting status details');			
-			return false;
+	<script type="text/javascript">
+		function getProvidersList() {
+			var token = window.sessionStorage.getItem("token");
+			$.ajax({
+				type : "GET",
+				url : config.Server_IP + config.serviceproviderlist,
+				headers : {
+					'lnt_access_token' : window.sessionStorage.getItem("token")
+				},
+				contentType : 'application/json',
+				accepts : "application/json",
+				success : function(data) {
+					showInfo(data);
+				},
+				error : function() {
+					alert('Error in getting status details');
+					return false;
+				}
+			});
 		}
-	});
-}
-function showInfo(data){
-	var spList=data;
-	var count=0;
-	
-	spList.forEach(function(sp) {
-		  count++;
-		});	
-	document.getElementById('contentInfo').innerText="Total Number of Service Providers:      "+count;
-	
-}
-</script>
+		function showInfo(data) {
+			var spList = data;
+			var count = 0;
+
+			spList.forEach(function(sp) {
+				count++;
+			});
+			document.getElementById('contentInfo').innerText = "Total Number of Service Providers:      "
+					+ count;
+
+		}
+	</script>
 <body>
-<div class='header' id='contentInfo'></div>
+	<div class='header' id='contentInfo'></div>
 </body>
 </html>

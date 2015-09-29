@@ -13,41 +13,39 @@
 </head>
 <body>
 
-<script type="text/javascript">
-function searchProvider(){
-	var userName = document.getElementById("userName").value;
-	
-	 $.ajax({
-			type : "GET",
-			url : config.Server_IP + config.getspdetails  + '/' + userName,				
-			headers: {
-	             'lnt_access_token': window.sessionStorage.getItem("token")
-	         },			
-	         data: {	        	 
-	        	 'username': userName
-	        	    },
-	      
-			contentType: 'application/json',
-			accepts: "application/json",
-			success : function(data) {								
-				showProviderInfo(data);
-			},
-			error : function() {
-				alert('Error in getting service provider info');			
-				return false;
+	<script type="text/javascript">
+		function searchProvider() {
+			var userName = document.getElementById("userName").value;
+
+			$.ajax({
+				type : "GET",
+				url : config.Server_IP + config.getspdetails + '/' + userName,
+				headers : {
+					'lnt_access_token' : window.sessionStorage.getItem("token")
+				},
+				data : {
+					'username' : userName
+				},
+
+				contentType : 'application/json',
+				accepts : "application/json",
+				success : function(data) {
+					showProviderInfo(data);
+				},
+				error : function() {
+					alert('Error in getting service provider info');
+					return false;
+				}
+			});
+
+			function showProviderInfo(data) {
+				var providerInfo = JSON.stringify(data);
+				localStorage.setItem('providerInfo', providerInfo);
+				window.location = "/iControlE-Core/html/editProvider.html";
 			}
-		});
-	 
-	 function showProviderInfo(data){
-			var providerInfo=JSON.stringify(data);			
-			localStorage.setItem('providerInfo', providerInfo); 
-			window.location = "/iControlE-Core/html/editProvider.html";			
+
 		}
-	
-}
-</script>
-
-
+	</script>
 	<table id="container">
 		<tr>
 			<td>Please Enter Service Provider Name</td>

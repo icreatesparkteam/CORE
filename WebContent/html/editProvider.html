@@ -5,7 +5,8 @@
 <link rel="stylesheet" type="text/css" media="screen"
 	href="../css/forms.css" />
 <script type="text/javascript" src="../js/config.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 
 <title>iControl-E</title>
 </head>
@@ -13,34 +14,24 @@
 
 	<form action="" id="editProviderForm">
 		<script type="text/javascript">
-			
-		function showProviderDetails(){
-			var data=localStorage.getItem('providerInfo');		
-			var providerObj=JSON.parse(data);	
-			document.getElementById("userName").value=providerObj.userName;
-			document.getElementById("serviceProviderName").value=providerObj.serviceProviderName;			
-			document.getElementById("emailAddress").value=providerObj.primaryEmailId;
-			document.getElementById("phone").value=providerObj.phoneNumber;
-			document.getElementById("altPhone").value=providerObj.altPhoneNumber;
-			document.getElementById("address").value=providerObj.address;
-			document.getElementById("city").value=providerObj.city;
-			document.getElementById("state").value=providerObj.state;
-			document.getElementById("country").value=providerObj.country;				
-			/*var activeElement = document.getElementById("active");
-			activeElement.options[activeElement.selectedIndex].value = providerObj.status;
-			
-			var questionElement = document.getElementById("question");
-			questionElement.options[questionElement.selectedIndex].value=providerObj.sQuestion;		*/		
-			
-		}
-		
-		
+			function showProviderDetails() {
+				var data = localStorage.getItem('providerInfo');
+				var providerObj = JSON.parse(data);
+				document.getElementById("userName").value = providerObj.userName;
+				document.getElementById("serviceProviderName").value = providerObj.serviceProviderName;
+				document.getElementById("emailAddress").value = providerObj.primaryEmailId;
+				document.getElementById("phone").value = providerObj.phoneNumber;
+				document.getElementById("altPhone").value = providerObj.altPhoneNumber;
+				document.getElementById("address").value = providerObj.address;
+				document.getElementById("city").value = providerObj.city;
+				document.getElementById("state").value = providerObj.state;
+				document.getElementById("country").value = providerObj.country;
+			}
+
 			function updateDetails() {
-			
 				var frm = document.getElementById("editProviderForm");
 
 				var userName = document.getElementById("userName").value;
-				//var password = document.getElementById("password").value;
 				var serviceProviderName = document
 						.getElementById("serviceProviderName").value;
 				var emailAddress = document.getElementById("emailAddress").value;
@@ -50,29 +41,6 @@
 				var city = document.getElementById("city").value;
 				var state = document.getElementById("state").value;
 				var country = document.getElementById("country").value;
-			/*	var zipCode = document.getElementById("zipCode").value;
-				var activeElement = document.getElementById("active");
-				var activeValue = activeElement.options[activeElement.selectedIndex].value;
-				var questionElement = document.getElementById("question");
-				var questionValue = questionElement.options[questionElement.selectedIndex].value;
-
-				var answer = document.getElementById("answer").value;
-
-				if (userName === "") {
-					alert('User Name is required.');
-					frm.userName.focus();
-					return false;
-				}
-				if (password === "") {
-					alert('Password is required.');
-					frm.password.focus();
-					return false;
-				}
-				if (serviceProviderName === "") {
-					alert('Service Provider Name is required.');
-					frm.serviceProviderName.focus();
-					return false;
-				}*/
 				if (emailAddress === "") {
 					alert('Email address is required.');
 					frm.emailAddress.focus();
@@ -108,33 +76,11 @@
 					alert('Country is required.');
 					frm.country.focus();
 					return false;
-				}
-	/*			if (zipCode === "") {
-					alert('Zip Code is required.');
-					frm.zipCode.focus();
-					return false;
-				}
-				if (active === "") {
-					alert('Select Active Status');
-					frm.active.focus();
-					return false;
-				}
-				if (question === "") {
-					alert('Select Security Question');
-					frm.question.focus();
-					return false;
-				}
-				if (answer == "") {
-					alert('Answer is required.');
-					frm.answer.focus();
-					return false;
-				}*/
-				
-				else {
+				} else {
 					var token = window.sessionStorage.getItem("token");
 					var jsonobj = {
 						'userName' : userName,
-					//	'password' : password,
+						//	'password' : password,
 						'serviceProviderName' : serviceProviderName,
 						'primaryEmailId' : emailAddress,
 						'phoneNumber' : phone,
@@ -143,14 +89,9 @@
 						'city' : city,
 						'state' : state,
 						'country' : country
-						//'zipCode':zipCode,
-						//'status' : 1,
-						//'sQuestion' : questionValue,
-						//'sAnswer' : answer,
-						//'changePassword' : null,
-						//'role' : 1
-					}					
-							$.ajax({
+					}
+					$
+							.ajax({
 								type : "POST",
 								url : config.Server_IP
 										+ config.updateServiceProvider,
@@ -168,110 +109,71 @@
 									frm.reset();
 								},
 								error : function() {
-									alert("Issue in updating details");
-									//frm.userName.focus();
+									alert("Issue in updating details");									
 									return false;
 								}
 							});
 				}
 			}
 		</script>
-		<table id="container"  >
-				<!--<tr>
-					<td colspan="2"><h1 id="header">EDIT SERVICE PROVIDER
-							</h1></td>
-				</tr>-->
+		<table id="container">
+			<tr>
+				<td>User Name:</td>
+				<td><input id="userName" name="UserName" type="text"
+					class="registartionFileds" disabled /></td>
+			</tr>
 
-				<tr>
-					<td>User Name:</td>
-					<td><input id="userName" name="UserName" type="text"
-						class="registartionFileds" disabled/></td>
-				</tr>			
+			<tr>
+				<td>Service Provider Name:</td>
+				<td><input id="serviceProviderName" name="serviceProviderName"
+					type="text" class="registartionFileds" disabled /></td>
+			</tr>
+			<tr>
+				<td>Email address:</td>
+				<td><input id="emailAddress" name="EmailAddress" type="text"
+					class="registartionFileds" /></td>
+			</tr>
+			<tr>
+				<td>Phone:</td>
+				<td><input id="phone" name="Phone" type="text"
+					class="registartionFileds" /></td>
+			</tr>
+			<tr>
+				<td>Alternate Phone:</td>
+				<td><input id="altPhone" name="AltPhone" type="text"
+					class="registartionFileds" /></td>
+			</tr>
 
-				<tr>
-					<td>Service Provider Name:</td>
-					<td><input id="serviceProviderName" name="serviceProviderName"
-						type="text" class="registartionFileds" disabled/></td>
-				</tr>
-				<tr>
-					<td>Email address:</td>
-					<td><input id="emailAddress" name="EmailAddress" type="text"
-						class="registartionFileds" /></td>
-				</tr>
-				<tr>
-					<td>Phone:</td>
-					<td><input id="phone" name="Phone" type="text"
-						class="registartionFileds" /></td>
-				</tr>
-				<tr>
-					<td>Alternate Phone:</td>
-					<td><input id="altPhone" name="AltPhone" type="text"
-						class="registartionFileds" /></td>
-				</tr>
-
-				<tr>
-					<td>Address:</td>
-					<td><input id="address" name="Address" type="text"
-						class="registartionFileds" /></td>
-				</tr>
-				<tr>
-					<td>City:</td>
-					<td><input id="city" name="City" type="text" maxlength="120"
-						class="registartionFileds" /></td>
-				</tr>
-				<tr>
-					<td>State/Province:</td>
-					<td><input id="state" name="State" type="text" maxlength="120"
-						class="registartionFileds" /></td>
-				</tr>
-				<tr>
-					<td>Country:</td>
-					<td><input id="country" name="Country" type="text"
-						class="registartionFileds" /></td>
-				</tr>
-			<!-- 	<tr>
-					<td>Zip/Postal Code:</td>
-					<td><input id="zipCode" name="ZipCode" type="text"
-						maxlength="30" class="registartionFileds" /></td>
-				</tr> 
-				<tr>
-					<td>Active:</td>
-					<td><select name="Active" id="active">
-							<option value="" selected>Select Active Status</option>
-							<option value="1">Yes</option>
-							<option value="2">No</option>
-					</select></td>
-				</tr>
-			<!-- 	<tr>
-					<td>Security Question:</td>
-					<td><select name="Question" id="question">
-							<option value="" selected>Select Security Question</option>
-							<option value="1">What was your childhood nickname?</option>
-							<option value="2">What is the name of your favorite
-								childhood friend?</option>
-							<option value="3">What was the make and model of your
-								first car?</option>
-							<option value="4">Who is your childhood sports hero?</option>
-							<option value="5">What is your pet’s name?</option>
-							<option value="6">In what year was your father born?</option>
-							<option value="7">What is your favorite fruit?</option>
-					</select></td>
-				</tr>
-				<tr>
-					<td>Answer:</td>
-					<td><input id="answer" name="Answer" type="text"
-						class="registartionFileds" /></td>
-				</tr>
-
+			<tr>
+				<td>Address:</td>
+				<td><input id="address" name="Address" type="text"
+					class="registartionFileds" /></td>
+			</tr>
+			<tr>
+				<td>City:</td>
+				<td><input id="city" name="City" type="text" maxlength="120"
+					class="registartionFileds" /></td>
+			</tr>
+			<tr>
+				<td>State/Province:</td>
+				<td><input id="state" name="State" type="text" maxlength="120"
+					class="registartionFileds" /></td>
+			</tr>
+			<tr>
+				<td>Country:</td>
+				<td><input id="country" name="Country" type="text"
+					class="registartionFileds" /></td>
+			</tr>
+			<!-- 	
 				<tr>
 					<td colspan="2" align="center"><input type="button"
 						class="submitBtn" id="submitButton" name="Submit"
 						onclick=updateDetails() value="EDIT PROVIDER DETAILS" /></td>
 				</tr> -->
-			</table>
+		</table>
 		</div>
 		<br />
-	</form>	
+	</form>
 
 </body>
 </html>

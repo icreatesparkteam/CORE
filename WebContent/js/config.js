@@ -1,5 +1,5 @@
 var config = {
-	"Server_IP" : "http://localhost:8080",
+	"Server_IP" : "http://52.27.53.182:8080",
 	"loginURL" : "/iControlE-Core/rest/auth/login",
 	"logoutURL" : "/iControlE-Core/rest/auth/logout",
 	"createServiceProvider" : "/iControlE-Core/rest/registration/create",

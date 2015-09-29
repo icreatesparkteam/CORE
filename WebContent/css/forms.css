@@ -1,361 +1,343 @@
-.iframe{
-    width:1147px;
-	min-height: 1000px; 
-    height: auto;    
-    margin: 0px;
+* {
+	margin: 0px;
+	padding: 0px;
+}
+
+.iframe {
+	width: 1147px;
+	min-height: 1000px;
+	height: auto;
+	margin: 0px;
 }
 
 #leftPanel {
-    width: 100%;
-    height: auto;
-    margin: 0px;
-    margin-top: 5px;	
+	width: 100%;
+	height: auto;
+	margin: 0px;
+	margin-top: 5px;
 }
 
 .slider {
-    margin-top: -5px;
-    height: 250px;
-    margin-bottom: 56px;
-    overflow: inherit;
+	margin-top: -5px;
+	height: 250px;
+	margin-bottom: 56px;
+	overflow: inherit;
 }
 
 .flex-control-nav {
-    position: absolute !important;
-    bottom: 10px !important;
+	position: absolute !important;
+	bottom: 10px !important;
 }
 
 .flex-control-paging li a {
-    background: rgba(187, 187, 187, 0.6) !important;
+	background: rgba(187, 187, 187, 0.6) !important;
 }
 
 .flex-control-paging li a.flex-active {
-    background: #FFFFFF !important;
+	background: #FFFFFF !important;
 }
+
 #aboutContentInfo {
-    width: 78%;
-    margin-right: 20px;
-    text-align: justify;
-    margin-top: -210px;
-    color: #646464;
+	width: 78%;
+	margin-right: 20px;
+	text-align: justify;
+	margin-top: -210px;
+	color: #646464;
 }
 
 #aboutContentWrapper>div {
-    height: auto;
-    border: 1px solid #e0e0e0;
-    border-radius: 10px;    
+	height: auto;
+	border: 1px solid #e0e0e0;
+	border-radius: 10px;
 }
-
 
 #loginEntryWrapper {
-    width: 380px;
-    height: 280px;
-    background:#fff;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    margin-top: -150px;
-    margin-left: -15%;
-    border-radius: 5px;
-    -webkit-box-shadow: 0px 0px 31px 10px rgba(0,0,0,0.75);
-    -moz-box-shadow: 0px 0px 31px 10px rgba(0,0,0,0.75);
-    box-shadow: 0px 0px 31px 10px rgba(0,0,0,0.75);
+	width: 380px;
+	height: 280px;
+	background: #fff;
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	margin-top: -150px;
+	margin-left: -15%;
+	border-radius: 5px;
+	-webkit-box-shadow: 0px 0px 31px 10px rgba(0, 0, 0, 0.75);
+	-moz-box-shadow: 0px 0px 31px 10px rgba(0, 0, 0, 0.75);
+	box-shadow: 0px 0px 31px 10px rgba(0, 0, 0, 0.75);
 }
 
-#loginForm>table {    
-    margin-top: 60px;
-    width: 100%;
+#loginForm>table {
+	margin-top: 60px;
+	width: 100%;
 }
 
 #loginForm>table tr {
-    height: 50px;
-    text-align: center;
+	height: 50px;
+	text-align: center;
 }
 
-#loginForm input[type=text], 
-#loginForm input[type=password] {
-    width:225px;
-    height:20px;
-    border:1px solid #DDD;
-    border-radius:8px;
-    background-color:#ffffff;
-    outline:none;
-    padding:5px 35px 5px 10px;
+#loginForm input[type=text], #loginForm input[type=password] {
+	width: 225px;
+	height: 20px;
+	border: 1px solid #DDD;
+	border-radius: 8px;
+	background-color: #ffffff;
+	outline: none;
+	padding: 5px 35px 5px 10px;
 }
-#loginForm a:hover {    
-    text-decoration: none;
+
+#loginForm a:hover {
+	text-decoration: none;
 }
 
 .submitBtn {
-    background-color: #08558b;
-    width:225px;
-    height:30px;
-    border-radius:8px;
-    border: none;
-    color: #fff;
-    cursor: pointer;
-    margin-bottom: 20px;
-    margin-top: 20px;
+	background-color: #08558b;
+	width: 225px;
+	height: 30px;
+	border-radius: 8px;
+	border: none;
+	color: #fff;
+	cursor: pointer;
+	margin-bottom: 20px;
+	margin-top: 20px;
 }
 
 .submitBtn:active {
-     box-shadow: 2px 2px 5px #888888;
+	box-shadow: 2px 2px 5px #888888;
 }
 
 #formHeader {
-    margin-top: -50px;
-    width: 100px;
-    height: 50px;   
-    background: url(/iControlE-Core/images/login_title.png) no-repeat;
-    background-size: 100% 100%;
-    position: absolute;
-    left: 50%;
-    margin-left: -50px;
-}
-/*
-.mainContainer{
-    height:845px !important;
-}*/
-
-.footerContainer{
-    top:815px;
+	margin-top: -50px;
+	width: 100px;
+	height: 50px;
+	background: url(/iControlE-Core/images/login_title.png) no-repeat;
+	background-size: 100% 100%;
+	position: absolute;
+	left: 50%;
+	margin-left: -50px;
 }
 
+.footerContainer {
+	top: 815px;
+}
 
 /******************************************Menu******************************************/
 #menu {
-    list-style: none;
+	list-style: none;
 }
+
 #menu li a {
-    float: left;
-    width: 225px;
-    display: inline;
-    overflow: hidden;
-    margin: 0;
-    padding: 1px;
-    text-decoration: none;
-    text-transform: capitalize;
-    text-align: center;
-    font-weight: 500;
-    font-style: normal;
-    font-size: 18px;
-    color: white;
-    border-right: 2px solid gray;
-    background: #024d87;
-    box-shadow: -3px -9px 10px 0px rgba(0,0,0,0.15);
+	float: left;
+	width: 225px;
+	display: inline;
+	overflow: hidden;
+	margin: 0;
+	padding: 1px;
+	text-decoration: none;
+	text-transform: capitalize;
+	text-align: center;
+	font-weight: 500;
+	font-style: normal;
+	font-size: 18px;
+	color: white;
+	border-right: 2px solid gray;
+	background: #024d87;
+	box-shadow: -3px -9px 10px 0px rgba(0, 0, 0, 0.15);
 }
+
 #menu li a:hover, #menu li a:active, #menu li a:focus {
-    color: black;
-    background-color:#1682ba ;
+	color: black;
+	background-color: #1682ba;
 }
 
-#menu{
-    margin-top: -55px;
-    height: 50px;
-    text-align: left;
-    text-indent: 10px;
-    line-height: 50px;
-    font-size: 18px;
-    color: #666;
-    list-style: none;
+#menu {
+	margin-top: -55px;
+	height: 50px;
+	text-align: left;
+	text-indent: 10px;
+	line-height: 50px;
+	font-size: 18px;
+	color: #666;
+	list-style: none;
 }
 
-
-/*********************/
-
-
-*{
-    margin:0px;
-    padding:0px;
-}
 
 body {
-    background:#fff;
-    font-family:Tahoma;
-    font-size: 15px;
+	background: #fff;
+	font-family: Tahoma;
+	font-size: 15px;
 }
 
 .mainContainer {
-    width: 1150px;
-    height: auto;
-    min-height: 200px; 
-    box-shadow: -3px -9px 15px 0px rgba(0,0,0,0.75);		
+	width: 1150px;
+	height: auto;
+	min-height: 200px;
+	box-shadow: -3px -9px 15px 0px rgba(0, 0, 0, 0.75);
 }
 
 .headerContainer {
-    width:100%;
-    height: 80px;
-    background: #024d87;
-    background: url(/iControlE-Core/images/banner.jpg) no-repeat;
+	width: 100%;
+	height: 80px;
+	background: #024d87;
+	background: url(/iControlE-Core/images/banner.png) no-repeat;
 }
 
 .headerMargin {
-    width:100%;
-    height: 10px;
-    background: #fff;
+	width: 100%;
+	height: 10px;
+	background: #fff;
 }
 
 #bodyContentWrapper {
-    width: 950px;
-    height: 700px;
-    margin: 10px;
+	width: 950px;
+	height: 700px;
+	margin: 10px;
 }
 
 .fl {
-    float:left;
+	float: left;
 }
 
 .fr {
-    float:right;
+	float: right;
 }
 
 .w100 {
-    width:100%;
+	width: 100%;
 }
 
-.footerContainer {    
-    width: 1200px;
-    height: 20px;
-    position: absolute; 
-    padding:10px 0px 10px 0px;
-    box-shadow: -2px 8px 15px -2px rgba(0,0,0,0.75);
+.footerContainer {
+	width: 1200px;
+	height: 20px;
+	position: absolute;
+	padding: 10px 0px 10px 0px;
+	box-shadow: -2px 8px 15px -2px rgba(0, 0, 0, 0.75);
 }
 
-.footerContainer>div {    
-    padding: 0 0 15px 15px;
-    color: #646464;
+.footerContainer>div {
+	padding: 0 0 15px 15px;
+	color: #646464;
 }
 
 .submitBtn {
-    background-color: #08558b;
-    width:225px;
-    height:30px;
-    border-radius:8px;
-    border: none;
-    color: #fff;
-    cursor: pointer;
+	background-color: #08558b;
+	width: 225px;
+	height: 30px;
+	border-radius: 8px;
+	border: none;
+	color: #fff;
+	cursor: pointer;
 }
 
-input[type=text],
-input[type=password] {
-    height:25px;
-    border:1px solid #CFCFCF;    
-    background-color:#ffffff;
-    outline:none;
-    padding:5px 5px 5px 5px;
+input[type=text], input[type=password] {
+	height: 25px;
+	border: 1px solid #CFCFCF;
+	background-color: #ffffff;
+	outline: none;
+	padding: 5px 5px 5px 5px;
 }
 
-#logoutHomeScreen{
-    width:25px;
-    height:25px;
-    background: URL('/iControlE-Core/images/logout_icn.png')no-repeat;
-    background-size: 100% 100%;
-    float:right;
-    margin-left:12px;
-    margin-top:-1px;
-    cursor:pointer;    
+#logoutHomeScreen {
+	width: 25px;
+	height: 25px;
+	background: URL('/iControlE-Core/images/logout_icn.png') no-repeat;
+	background-size: 100% 100%;
+	float: right;
+	margin-left: 12px;
+	margin-top: -1px;
+	cursor: pointer;
 }
 
-/*#container {*/
-	/*width: 700px;*/
-	/*background-color: white;*/
-	/*margin: auto;*/
-	/*margin-top: 130px !important;*/
-	/*margin-left: 100px;*/
-	/*verticle-align: centre;*/
-    /*border: 2px solid #08558b;*/
-    /*padding-left: 60px;*/
-    /*padding-top: 60px;*/
-/*}*/
 #container {
-    width: 700px;
-    background-color: white;
-    /*margin: auto;*/
-    margin-top: 30px !important;
-    margin-left: 230px;
-    verticle-align: centre;
-    border: 2px solid #08558b;
-    padding-left: 60px;
-    padding-top: 30px;
-    position: relative;
+	width: 700px;
+	background-color: white;
+	margin-top: 30px !important;
+	margin-left: 230px;
+	verticle-align: centre;
+	border: 2px solid #08558b;
+	padding-left: 60px;
+	padding-top: 30px;
+	position: relative;
 	padding-bottom: 15px !important;
 }
 
-input[type=text],
-input[type=password] {
-    width:225px;
-    height:20px;
-    border:1px solid #DDD;
-    border-radius:8px;
-    background-color:#ffffff;
-    outline:none;
-    padding:5px 35px 5px 10px;
-    margin-bottom: 10px;
-
-}
-select{
-    width: 275px;
-    margin-bottom: 10px;
+input[type=text], input[type=password] {
+	width: 225px;
+	height: 20px;
+	border: 1px solid #DDD;
+	border-radius: 8px;
+	background-color: #ffffff;
+	outline: none;
+	padding: 5px 35px 5px 10px;
+	margin-bottom: 10px;
 }
 
-.listElement{
-width:1100px;
-height:60px;
-background-color: #08558b;
-color: white;
-font-size: 18px;
-border-radius:5px;				
-cursor:pointer;
-margin-left:20px;
+select {
+	width: 275px;
+	margin-bottom: 10px;
 }
+
+.listElement {
+	width: 1100px;
+	height: 60px;
+	background-color: #08558b;
+	color: white;
+	font-size: 18px;
+	border-radius: 5px;
+	cursor: pointer;
+	margin-left: 20px;
+}
+
 .listElement:hover {
-background-color:#1682ba ;
+	background-color: #1682ba;
 }
+
 .header {
 	height: 40px;
 	width: 100%;
 	margin: 0px;
-	margin-top:40px;
-	margin-left:150px;
-	padding-top: 15px !important;	
+	margin-top: 40px;
+	margin-left: 150px;
+	padding-top: 15px !important;
 	color: black;
 	font-size: 20px;
-	text-align: left;	
-}
-#listView{
-    width: 750px;
-    background-color: white;
-    margin: 10px;    
-    verticle-align: centre;
-    border: 2px solid #08558b;
-	margin-top: 30px !important;
-    margin-left: 230px !important;
-   
-}
-th{
-padding:8px;
-background-color:#08558b;
-color:white;
+	text-align: left;
 }
 
-#providerListView{
-    width: 900px;
-    background-color: white;
-    margin: 10px;    
-    verticle-align: centre;
-    border: 2px solid #08558b;
+#listView {
+	width: 750px;
+	background-color: white;
+	margin: 10px;
+	verticle-align: centre;
+	border: 2px solid #08558b;
 	margin-top: 30px !important;
-    margin-left: 150px !important;   
+	margin-left: 230px !important;
 }
 
-.header2{
+th {
+	padding: 8px;
+	background-color: #08558b;
+	color: white;
+}
+
+#providerListView {
+	width: 900px;
+	background-color: white;
+	margin: 10px;
+	verticle-align: centre;
+	border: 2px solid #08558b;
+	margin-top: 30px !important;
+	margin-left: 150px !important;
+}
+
+.header2 {
 	height: 40px;
 	width: 100%;
 	margin: 0px;
-	margin-top:40px;	
-	padding-top: 15px !important;	
+	margin-top: 40px;
+	padding-top: 15px !important;
 	color: black;
 	font-size: 20px;
-	text-align: left;	
+	text-align: left;
 	margin-left: 230px !important;
-	
 }

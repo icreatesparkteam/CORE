@@ -2,92 +2,95 @@
 <html>
 <head>
 
- <title>iControl-E</title>
-    <meta http-equiv='X-UA-Compatible' content='IE=9'>
-    <link rel="icon" href="/iControlE-Core/images/iControlE.ico" type="image/ico" sizes="16x16">
+<title>iControl-E</title>
+<meta http-equiv='X-UA-Compatible' content='IE=9'>
+<link rel="icon" href="/iControlE-Core/images/iControlE.ico"
+	type="image/ico" sizes="16x16">
 
 
 <link rel="stylesheet" type="text/css" media="screen"
 	href="/iControlE-Core/css/forms.css" />
 <script type="text/javascript" src="/iControlE-Core/js/config.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 
-<script type="text/javascript">        
-    history.pushState(null, null, '/iControlE-Core/html/Login.html');
-    window.addEventListener('popstate', function(event) {
-    history.pushState(null, null, '/iControlE-Core/html/Login.html');
-    });
+<script type="text/javascript">
+	history.pushState(null, null, '/iControlE-Core/html/Login.html');
+	window.addEventListener('popstate', function(event) {
+		history.pushState(null, null, '/iControlE-Core/html/Login.html');
+	});
 </script>
 
 </head>
 <body>
-	
-		<script type="text/javascript">
-			function loginfunction() {
-				var form = document.getElementById("loginForm");
 
-				var username = document.getElementById("UserName").value;
-				var password = document.getElementById("Password").value;
+	<script type="text/javascript">
+		function loginfunction() {
+			var form = document.getElementById("loginForm");
 
-				if (username === "" && password === "") {
-					alert('Please enter your credentials');
-				} else if (username === "") {
-					alert('User Name is required.');
-					form.UserName.focus();
-				} else if (password === "") {
-					alert('Password is required.');
-					form.Password.focus();
-				} else {
-					$.ajax({
-						type : "POST",
-						url : config.Server_IP + config.loginURL,
-						data : {
-							'username' : username,
-							'password' : password
-						},
-						contentType : "application/x-www-form-urlencoded",
+			var username = document.getElementById("UserName").value;
+			var password = document.getElementById("Password").value;
 
-						success : function(data) {	
-							//goto main page		
-							document.cookie = "lnt_access_token" + "=" + JSON.parse(JSON.stringify(data));
-							window.sessionStorage.setItem("token",JSON.parse(JSON.stringify(data)));					 
-							window.location = "/iControlE-Core/html/mainPage.html";
-						},
-						error : function() {
-							alert('Invalid Credentials');
-							//form.UserName.focus();
-							return false;
-						}
-					});
-				}
+			if (username === "" && password === "") {
+				alert('Please enter your credentials');
+			} else if (username === "") {
+				alert('User Name is required.');
+				form.UserName.focus();
+			} else if (password === "") {
+				alert('Password is required.');
+				form.Password.focus();
+			} else {
+				$.ajax({
+					type : "POST",
+					url : config.Server_IP + config.loginURL,
+					data : {
+						'username' : username,
+						'password' : password
+					},
+					contentType : "application/x-www-form-urlencoded",
+
+					success : function(data) {
+						//goto main page		
+						document.cookie = "lnt_access_token" + "="
+								+ JSON.parse(JSON.stringify(data));
+						window.sessionStorage.setItem("token", JSON.parse(JSON
+								.stringify(data)));
+						window.location = "/iControlE-Core/html/mainPage.html";
+					},
+					error : function() {
+						alert('Invalid Credentials');
+						return false;
+					}
+				});
 			}
-		</script>
-			
-		<div class='w100 loadingContainer'>
-    <div id='loginEntryWrapper'>
-        <form action="" id="loginForm" method="post">
-            <div id='formHeader'></div>
-            <table>
-                <tr>
-                    <td><input id="UserName" name="UserName" type="text" maxlength='20'
-                               class="loginFileds" placeholder='Enter User Name'/></td>
-                </tr>
-                <tr>
+		}
+	</script>
 
-                    <td><input id="Password" name="Password" type="password"
-                               placeholder="Enter Password" class="loginFileds"/></td>
-                </tr>
-                <tr>
-                    <td class="loginButtonContainer"><input type="button" class='submitBtn'
-                                                            id="loginButton" name="Submit" onclick=loginfunction()
-                                                            value="Login"/></td>
-                </tr>
-            </table>
+	<div class='w100 loadingContainer'>
+		<div id='loginEntryWrapper'>
+			<form action="" id="loginForm" method="post">
+				<div id='formHeader'></div>
+				<table>
+					<tr>
+						<td><input id="UserName" name="UserName" type="text"
+							maxlength='20' class="loginFileds" placeholder='Enter User Name' /></td>
+					</tr>
+					<tr>
 
-        </form>
-    </div>
-</div>
-		
-		
+						<td><input id="Password" name="Password" type="password"
+							placeholder="Enter Password" class="loginFileds" /></td>
+					</tr>
+					<tr>
+						<td class="loginButtonContainer"><input type="button"
+							class='submitBtn' id="loginButton" name="Submit"
+							onclick=loginfunction() value="Login" /></td>
+					</tr>
+				</table>
+
+			</form>
+		</div>
+	</div>
+
+
 </body>
 </html>
