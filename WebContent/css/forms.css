@@ -42,7 +42,7 @@
 	margin-right: 20px;
 	text-align: justify;
 	margin-top: -210px;
-	color: #646464;
+	color: #646464;	
 }
 
 #aboutContentWrapper>div {
@@ -172,7 +172,7 @@ body {
 	width: 1150px;
 	height: auto;
 	min-height: 200px;
-	box-shadow: -3px -9px 15px 0px rgba(0, 0, 0, 0.75);
+	box-shadow: -3px -9px 15px 0px rgba(0, 0, 0, 0.75);	
 }
 
 .headerContainer {
@@ -315,9 +315,11 @@ select {
 }
 
 th {
-	padding: 8px;
+	padding: 6px;
 	background-color: #08558b;
-	color: white;
+	color: white;	
+	text-transform: uppercase;	
+	font-weight: 400;
 }
 
 #providerListView {
